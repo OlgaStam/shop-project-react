@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './style.css'
 
 const Title = () => {
     return <h1> Hello Title component</h1>
@@ -7,7 +8,7 @@ const Title = () => {
 const Content = () => {
     return (
         <>
-            <p>
+            <p className="red">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Delectus, ea.
             </p>
