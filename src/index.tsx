@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './style.css'
 
-interface ITitle {
+type typeTitle = {
     titlePropsFromInterface: string
 }
-const Title = (props: ITitle) => {
+const Title = (props: typeTitle) => {
     return <h1> Hello {props.titlePropsFromInterface} component</h1>
 }
 const Content = () => {
