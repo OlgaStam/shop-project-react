@@ -5,8 +5,8 @@ import './style.css'
 type typeTitle = {
     titlePropsFromInterface: string
 }
-const Title = (props: typeTitle) => {
-    return <h1> Hello {props.titlePropsFromInterface} component</h1>
+const Title = ({ titlePropsFromInterface }: typeTitle) => {
+    return <h1> Hello {titlePropsFromInterface} component</h1>
 }
 const Content = () => {
     return (
