@@ -2,8 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './style.css'
 
-const Title = () => {
-    return <h1> Hello Title component</h1>
+interface ITitle {
+    titlePropsFromInterface: string
+}
+const Title = (props: ITitle) => {
+    return <h1> Hello {props.titlePropsFromInterface} component</h1>
 }
 const Content = () => {
     return (
@@ -22,7 +25,8 @@ const Content = () => {
 const App = () => {
     return (
         <>
-            <Title />
+            <Title titlePropsFromInterface="App" />
+            <Title titlePropsFromInterface="Next" />
             <Content />
         </>
     )
