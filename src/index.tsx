@@ -1,18 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './style.css'
+import Title from './Title'
 
-type titleProps = {
-    title: string
-    num?: number
-}
-const Title = ({ title, num = 5 }: titleProps) => {
-    return (
-        <h1>
-            Hello {title} {num}
-        </h1>
-    )
-}
 const Content = () => {
     return (
         <>
