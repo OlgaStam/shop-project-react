@@ -5,13 +5,13 @@ import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Container } from '@mui/material'
-
+import logo from '../../assets/logo.svg'
 import './Header.scss'
 
 type Props = {}
 const Header = (props: Props) => {
     return (
-        <AppBar position="static">
+        <AppBar position="static" className="app-bar">
             <Container>
                 <Toolbar>
                     <IconButton
@@ -28,7 +28,7 @@ const Header = (props: Props) => {
                         component="div"
                         sx={{ flexGrow: 1 }}
                     >
-                        News
+                        <img src={logo} alt="Fake-shop logo" />
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
