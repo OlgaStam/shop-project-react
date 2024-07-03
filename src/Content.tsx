@@ -2,7 +2,7 @@ type contetntProps = {
     p1: string
     p2?: string
 }
-const Content = ({ p1, p2 = 'ybxtuj' }: contetntProps) => {
+export const Content = ({ p1, p2 = 'ybxtuj' }: contetntProps) => {
     return (
         <>
             <p className="red">{p1}</p>
@@ -10,4 +10,4 @@ const Content = ({ p1, p2 = 'ybxtuj' }: contetntProps) => {
         </>
     )
 }
-export default Content
+// export default Content
