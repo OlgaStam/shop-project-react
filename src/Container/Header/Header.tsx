@@ -1,8 +1,9 @@
+import './Header.scss'
 type Props = {}
 const Header = (props: Props) => {
     return (
         <div>
-            <h1>Header</h1>
+            <h1 className="red">Header</h1>
         </div>
     )
 }
