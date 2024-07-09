@@ -5,7 +5,14 @@ type Props = {}
 const ProductList = (props: Props) => {
     return (
         <>
-            <Typography component="h2" variant="h3" align="center">
+            <Typography
+                component="h2"
+                variant="h3"
+                align="center"
+                sx={{
+                    marginBottom: '30px',
+                }}
+            >
                 List of Products
             </Typography>
             <Grid container spacing={4}>

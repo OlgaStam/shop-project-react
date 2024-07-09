@@ -1,4 +1,5 @@
 import { Button, Card, CardActions, CardContent } from '@mui/material'
+import './ProductListItem.scss'
 
 type Props = {}
 const ProductListItem = (props: Props) => {
@@ -9,9 +10,9 @@ const ProductListItem = (props: Props) => {
                 <div className="product-discription">This is iPhone X</div>
                 <div className="product-features">Type: phone</div>
                 <div className="product-features">Capacity: 64Gb</div>
-                <div className="product-price">$ 500</div>
+                <div className="product-price">Price: $ 500</div>
             </CardContent>
-            <CardActions>
+            <CardActions className="btns-wrap">
                 <Button variant="outlined">Add to card</Button>
             </CardActions>
         </Card>
