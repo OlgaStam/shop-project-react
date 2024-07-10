@@ -17,37 +17,17 @@ const ProductList = (props: Props) => {
                 List of Products
             </Typography>
             <Grid container spacing={4}>
-                {productsArray.map(
-                    (productTheCurrentArrayElementInEachMapIteration) => (
-                        <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            key={
-                                productTheCurrentArrayElementInEachMapIteration.id
-                            }
-                        >
-                            <ProductListItem
-                                id={
-                                    productTheCurrentArrayElementInEachMapIteration.id
-                                }
-                                title={
-                                    productTheCurrentArrayElementInEachMapIteration.title
-                                }
-                                type={
-                                    productTheCurrentArrayElementInEachMapIteration.type
-                                }
-                                capacity={
-                                    productTheCurrentArrayElementInEachMapIteration.capacity
-                                }
-                                price={
-                                    productTheCurrentArrayElementInEachMapIteration.price
-                                }
-                            />
-                        </Grid>
-                    )
-                )}
+                {productsArray.map(({ id, title, type, capacity, price }) => (
+                    <Grid item xs={12} sm={6} md={4} key={id}>
+                        <ProductListItem
+                            id={id}
+                            title={title}
+                            type={type}
+                            capacity={capacity}
+                            price={price}
+                        />
+                    </Grid>
+                ))}
             </Grid>
         </>
     )
