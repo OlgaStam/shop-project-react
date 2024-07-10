@@ -19,8 +19,19 @@ const ProductList = (props: Props) => {
             <Grid container spacing={4}>
                 {productsArray.map(
                     (productTheCurrentArrayElementInEachMapIteration) => (
-                        <Grid item xs={12} sm={6} md={4}>
+                        <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
+                            key={
+                                productTheCurrentArrayElementInEachMapIteration.id
+                            }
+                        >
                             <ProductListItem
+                                id={
+                                    productTheCurrentArrayElementInEachMapIteration.id
+                                }
                                 title={
                                     productTheCurrentArrayElementInEachMapIteration.title
                                 }

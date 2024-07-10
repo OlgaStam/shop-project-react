@@ -1,5 +1,5 @@
 export type Product = {
-    id?: number
+    id: number
     title: string
     capacity: string
     type: string
@@ -9,7 +9,7 @@ export type Product = {
 
 const productsArray: Product[] = [
     {
-        // id: 1,
+        id: 1,
         title: 'iPhone 14 Pro',
         type: 'phone',
         capacity: '256',
@@ -17,7 +17,7 @@ const productsArray: Product[] = [
         // image: '/images/Black.webp',
     },
     {
-        // id: 2,
+        id: 2,
         title: 'iPhone 13 Pro',
         type: 'phone',
         capacity: '128',
@@ -25,23 +25,23 @@ const productsArray: Product[] = [
         // image: '/images/Blue.webp',
     },
     {
-        // id: 3,
-        title: 'iPhone 12 Pro',
+        id: 3,
+        title: 'iPhone XS',
         type: 'phone',
         capacity: '128',
         price: 500,
         // image: '/images/gold.webp',
     },
     {
-        // id: 4,
-        title: 'iPhone 11 Pro',
+        id: 4,
+        title: 'iPhone 11 Pro MAX',
         type: 'phone',
         capacity: '64',
         price: 1500,
         // image: '/images/Purple.webp',
     },
     {
-        // id: 5,
+        id: 5,
         title: 'iPhone 10',
         type: 'phone',
         capacity: '128',
@@ -49,7 +49,7 @@ const productsArray: Product[] = [
         // image: '/images/Red.webp',
     },
     {
-        // id: 6,
+        id: 6,
         title: 'iPhone 9',
         type: 'phone',
         capacity: '64',
