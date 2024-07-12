@@ -7,6 +7,7 @@ const Main = (props: Props) => {
         <Container
             sx={{
                 padding: '40px 0',
+                marginTop: '50px',
             }}
         >
             <Home />

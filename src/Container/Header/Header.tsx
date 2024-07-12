@@ -13,7 +13,7 @@ import './Header.scss'
 type Props = {}
 const Header = (props: Props) => {
     return (
-        <AppBar position="static" className="app-bar">
+        <AppBar className="app-bar">
             <Container>
                 <Toolbar>
                     <IconButton
