@@ -2,18 +2,21 @@ import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import { Container } from '@mui/material'
+import { Container, styled } from '@mui/material'
 
 import Logo from 'components/Logo/Logo'
 import Menu from 'components/Menu/menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 
-import './Header.scss'
-
+const StyledAppBar = styled(AppBar)({
+    position: 'fixed',
+    top: 0,
+    backgroundColor: '#653c7a',
+})
 type Props = {}
 const Header = (props: Props) => {
     return (
-        <AppBar position="static" className="app-bar">
+        <StyledAppBar className="app-bar">
             <Container>
                 <Toolbar>
                     <IconButton
@@ -30,7 +33,7 @@ const Header = (props: Props) => {
                     <CartHeader />
                 </Toolbar>
             </Container>
-        </AppBar>
+        </StyledAppBar>
     )
 }
 export default Header
