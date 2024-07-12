@@ -22,3 +22,12 @@
     display: flex;
     justify-content: center;
 }
+.product-img {
+    margin-bottom: 15px;
+    text-align: center;
+
+    img {
+        height: 170px;
+        width: auto;
+    }
+}

@@ -4,7 +4,7 @@ export type Product = {
     capacity: string
     type: string
     price: number
-    image?: string
+    image: string
 }
 
 const productsArray: Product[] = [
@@ -14,7 +14,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '256',
         price: 1000,
-        // image: '/images/Black.webp',
+        image: '/images/Black.webp',
     },
     {
         id: 2,
@@ -22,7 +22,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '128',
         price: 1000,
-        // image: '/images/Blue.webp',
+        image: '/images/Blue.webp',
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '128',
         price: 500,
-        // image: '/images/gold.webp',
+        image: '/images/gold.webp',
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '64',
         price: 1500,
-        // image: '/images/Purple.webp',
+        image: '/images/Purple.webp',
     },
     {
         id: 5,
@@ -46,7 +46,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '128',
         price: 1000,
-        // image: '/images/Red.webp',
+        image: '/images/Red.webp',
     },
     {
         id: 6,
@@ -54,7 +54,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '64',
         price: 900,
-        // image: '/images/starlight.webp',
+        image: '/images/starlight.webp',
     },
 ]
 
