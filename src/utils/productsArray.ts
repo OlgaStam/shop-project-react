@@ -1,10 +1,17 @@
+import blackWebp from 'assets/images/Black.webp'
+import blueWebp from 'assets/images/Blue.webp'
+import purpleWebp from 'assets/images/Purple.webp'
+import redWebp from 'assets/images/Red.webp'
+import goldWebp from 'assets/images/gold.webp'
+import starlightWebp from 'assets/images/starlight.webp'
+
 export type Product = {
     id: number
     title: string
     capacity: string
     type: string
     price: number
-    image: string
+    image: any
 }
 
 const productsArray: Product[] = [
@@ -14,7 +21,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '256',
         price: 1000,
-        image: '/images/Black.webp',
+        image: blackWebp,
     },
     {
         id: 2,
@@ -22,7 +29,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '128',
         price: 1000,
-        image: '/images/Blue.webp',
+        image: blueWebp,
     },
     {
         id: 3,
@@ -30,7 +37,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '128',
         price: 500,
-        image: '/images/gold.webp',
+        image: goldWebp,
     },
     {
         id: 4,
@@ -38,7 +45,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '64',
         price: 1500,
-        image: '/images/Purple.webp',
+        image: purpleWebp,
     },
     {
         id: 5,
@@ -46,7 +53,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '128',
         price: 1000,
-        image: '/images/Red.webp',
+        image: redWebp,
     },
     {
         id: 6,
@@ -54,7 +61,7 @@ const productsArray: Product[] = [
         type: 'phone',
         capacity: '64',
         price: 900,
-        image: '/images/starlight.webp',
+        image: starlightWebp,
     },
 ]
 

@@ -8,7 +8,7 @@ import {
 import './ProductListItem.scss'
 
 type Props = {
-    image: string
+    image: any
     title: string
     type: string
     capacity: string
