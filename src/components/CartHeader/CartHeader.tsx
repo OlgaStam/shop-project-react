@@ -7,11 +7,6 @@ type productsInCart = {
     [id: number]: number
 }
 
-//ненадежно привязываться к порядковому номеру в массиве как к уникальному
-// перепишем массив в объект, в котором ключом будет айди,
-// с помощью функции в utils / productsArray
-// теперь экспорт из utils/productsArray ф-ю и тип
-
 type productsObjectType = {
     [id: number]: Product
 }
@@ -43,7 +38,16 @@ const CartHeader = ({ productsInCart }: Props) => {
                     </div>
                 ))}
             </div>
-            <div>Total : $</div>
+            <div>
+                Total: ${' '}
+                {Object.keys(productsInCart).reduce(
+                    (total, productId) =>
+                        total +
+                        productsObject[parseInt(productId)].price *
+                            productsInCart[parseInt(productId)],
+                    0
+                )}
+            </div>
         </div>
     )
 }
