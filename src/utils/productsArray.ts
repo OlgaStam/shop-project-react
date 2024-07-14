@@ -65,15 +65,15 @@ const productsArray: Product[] = [
     },
 ]
 
-// export const getProductsObject = (array: Product[]) =>
-//     array.reduce(
-//         (object, product) => ({
-//             // ...object, - без спреда возвращается только 6й товар, т.к. ф-я прошла все итерации и вернула последний
-//             // поэтому мы мерджим все итерации с помощью спред-оператора
-//             ...object,
-//             [product.id]: product,
-//         }),
-//         {}
-//     )
+export const getProductsObject = (array: Product[]) =>
+    array.reduce(
+        (object, product) => ({
+            // ...object, - без спреда возвращается только 6й товар, т.к. ф-я прошла все итерации и вернула последний
+            // поэтому мы мерджим все итерации с помощью спред-оператора
+            ...object,
+            [product.id]: product,
+        }),
+        {}
+    )
 
 export default productsArray

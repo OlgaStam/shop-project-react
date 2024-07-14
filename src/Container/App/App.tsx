@@ -8,22 +8,23 @@ type CartData = {
     totalCount: number
     totalPrice: number
 }
+type productsInCart = {
+    [id: number]: number
+}
 const App = () => {
-    const [cartData, setCartData] = useState<CartData>({
-        totalCount: 0,
-        totalPrice: 0,
-    })
-    const addProductToCart = (count: number, price: number) => {
-        setCartData((prevState) => ({
-            totalCount: prevState.totalCount + count,
-            totalPrice: prevState.totalPrice + price * count,
+    const [productsInCart, setProductsInCart] = useState<productsInCart>({})
+
+    const addProductToCart = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: (prevState[id] || 0) + count,
         }))
     }
     return (
         <>
             <StyledEngineProvider injectFirst>
                 <CssBaseline />
-                <Header cartData={cartData} />
+                <Header productsInCart={productsInCart} />
 
                 <Main addProductToCart={addProductToCart} />
             </StyledEngineProvider>
