@@ -8,7 +8,15 @@ type CartData = {
     totalCount: number
     totalPrice: number
 }
+type ProductsInCart = {
+    [id: number]: number
+}
 const App = () => {
+    const [productsInCart, setProductsInCart] = useState<ProductsInCart>({
+        1: 5,
+        2: 5,
+    })
+
     const [cartData, setCartData] = useState<CartData>({
         totalCount: 0,
         totalPrice: 0,
