@@ -1,16 +1,17 @@
-import { CardTypeMap } from '@mui/material'
-
 type Props = {
-    cartData: {
-        totalCount: number
-        totalPrice: number
-    }
+    productsInCart: productsInCart
 }
-const CartHeader = ({ cartData }: Props) => {
+type productsInCart = {
+    [id: number]: number
+}
+const CartHeader = ({ productsInCart }: Props) => {
     return (
         <div>
-            <div>{cartData.totalCount}</div>
-            <div>$ {cartData.totalPrice}</div>
+            {Object.keys(productsInCart).map((productId) => (
+                <div key={productId}>
+                    {productId}: {productsInCart[Number(productId)]}
+                </div>
+            ))}
         </div>
     )
 }
