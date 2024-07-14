@@ -17,14 +17,13 @@ const App = () => {
         2: 5,
     })
 
-    const [cartData, setCartData] = useState<CartData>({
-        totalCount: 0,
-        totalPrice: 0,
-    })
-    const addProductToCart = (count: number, price: number) => {
-        setCartData((prevState) => ({
-            totalCount: prevState.totalCount + count,
-            totalPrice: prevState.totalPrice + price * count,
+    // const [cartData, setCartData] = useState<CartData>({
+    //     totalCount: 0,
+    //     totalPrice: 0,
+    // })
+    const addProductToCart = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            [id]: prevState[id] + count,
         }))
     }
     return (
@@ -32,7 +31,15 @@ const App = () => {
             <StyledEngineProvider injectFirst>
                 <CssBaseline />
                 <Header productsInCart={productsInCart} />
-
+                <button
+                    style={{
+                        top: '80px',
+                        position: 'fixed',
+                    }}
+                    onClick={() => addProductToCart(2, 10)}
+                >
+                    Add to Cart (id:2, count:10)
+                </button>
                 <Main addProductToCart={addProductToCart} />
             </StyledEngineProvider>
         </>
