@@ -13,8 +13,13 @@ const StyledAppBar = styled(AppBar)({
     top: 0,
     backgroundColor: '#653c7a',
 })
-type Props = {}
-const Header = (props: Props) => {
+type Props = {
+    cartData: {
+        totalCount: number
+        totalPrice: number
+    }
+}
+const Header = ({ cartData }: Props) => {
     return (
         <StyledAppBar className="app-bar">
             <Container>
@@ -30,7 +35,7 @@ const Header = (props: Props) => {
                     </IconButton>
                     <Logo />
                     <Menu />
-                    <CartHeader />
+                    <CartHeader cartData={cartData} />
                 </Toolbar>
             </Container>
         </StyledAppBar>
