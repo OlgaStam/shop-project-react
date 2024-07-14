@@ -17,7 +17,7 @@ const App = () => {
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState) => ({
             ...prevState,
-            [id]: (prevState[id] || 0) + count, //если prevState[id] возвращает не число - ставим 0
+            [id]: (prevState[id] || 0) + count,
         }))
     }
     return (
