@@ -4,10 +4,6 @@ import { StyledEngineProvider } from '@mui/material'
 import Main from 'Container/Main/Main'
 import { useState } from 'react'
 
-type CartData = {
-    totalCount: number
-    totalPrice: number
-}
 type productsInCart = {
     [id: number]: number
 }
