@@ -1,5 +1,6 @@
 import productsArray, { Product, getProductsObject } from 'utils/productsArray'
 
+
 type Props = {
     productsInCart: productsInCart
 }
