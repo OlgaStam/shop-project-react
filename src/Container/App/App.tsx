@@ -22,9 +22,11 @@ const App = () => {
     //     totalPrice: 0,
     // })
     const addProductToCart = (id: number, count: number) => {
-        setProductsInCart((prevState) => ({
-            [id]: prevState[id] + count,
-        }))
+        setProductsInCart((prevState) =>
+            Object.assign({}, prevState, {
+                [id]: prevState[id] + count,
+            })
+        )
     }
     return (
         <>
