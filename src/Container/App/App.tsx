@@ -12,19 +12,12 @@ type productsInCart = {
     [id: number]: number
 }
 const App = () => {
-    const [productsInCart, setProductsInCart] = useState<productsInCart>({
-        1: 5,
-        2: 5,
-    })
+    const [productsInCart, setProductsInCart] = useState<productsInCart>({})
 
-    // const [cartData, setCartData] = useState<CartData>({
-    //     totalCount: 0,
-    //     totalPrice: 0,
-    // })
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState) => ({
             ...prevState,
-            [id]: prevState[id] + count,
+            [id]: (prevState[id] || 0) + count, //если prevState[id] возвращает не число - ставим 0
         }))
     }
     return (
@@ -32,15 +25,7 @@ const App = () => {
             <StyledEngineProvider injectFirst>
                 <CssBaseline />
                 <Header productsInCart={productsInCart} />
-                <button
-                    style={{
-                        top: '80px',
-                        position: 'fixed',
-                    }}
-                    onClick={() => addProductToCart(2, 10)}
-                >
-                    Add to Cart (id:2, count:10)
-                </button>
+
                 <Main addProductToCart={addProductToCart} />
             </StyledEngineProvider>
         </>
