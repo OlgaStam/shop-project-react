@@ -1,11 +1,19 @@
 import Header from 'Container/Header/Header'
 import CssBaseline from '@mui/material/CssBaseline'
-import { Container, StyledEngineProvider } from '@mui/material'
+import {
+    Box,
+    Container,
+    StyledEngineProvider,
+    ThemeProvider,
+    createTheme,
+} from '@mui/material'
 import Main from 'Container/Main/Main'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
+
+const theme = createTheme()
 
 type productsInCart = {
     [id: number]: number
@@ -21,21 +29,28 @@ const App = () => {
     }
     return (
         <>
-            <StyledEngineProvider injectFirst>
+            {/* <StyledEngineProvider injectFirst> */}
+            {/* <CssBaseline /> */}
+            <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Header productsInCart={productsInCart} />
-                <Container>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <Home addProductToCart={addProductToCart} />
-                            }
-                        />
-                        <Route path="/cart" element={<CartPage />} />
-                    </Routes>
-                </Container>{' '}
-            </StyledEngineProvider>
+                <Box sx={{ marginTop: '80px' }}>
+                    {' '}
+                    {/* Отступ для всех страниц */}
+                    <Header productsInCart={productsInCart} />
+                    <Container>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={
+                                    <Home addProductToCart={addProductToCart} />
+                                }
+                            />
+                            <Route path="/cart" element={<CartPage />} />
+                        </Routes>
+                    </Container>{' '}
+                </Box>
+            </ThemeProvider>
+            {/* </StyledEngineProvider> */}
         </>
     )
 }
