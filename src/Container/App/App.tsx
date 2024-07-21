@@ -7,7 +7,6 @@ import {
     ThemeProvider,
     createTheme,
 } from '@mui/material'
-import Main from 'Container/Main/Main'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router'
 import Home from 'pages/Home/Home'
@@ -28,30 +27,25 @@ const App = () => {
         }))
     }
     return (
-        <>
-            {/* <StyledEngineProvider injectFirst> */}
-            {/* <CssBaseline /> */}
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Box sx={{ marginTop: '80px' }}>
-                    {' '}
-                    {/* Отступ для всех страниц */}
-                    <Header productsInCart={productsInCart} />
-                    <Container>
-                        <Routes>
-                            <Route
-                                path="/"
-                                element={
-                                    <Home addProductToCart={addProductToCart} />
-                                }
-                            />
-                            <Route path="/cart" element={<CartPage />} />
-                        </Routes>
-                    </Container>{' '}
-                </Box>
-            </ThemeProvider>
-            {/* </StyledEngineProvider> */}
-        </>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Box sx={{ marginTop: '80px' }}>
+                {' '}
+                {/* Отступ для всех страниц */}
+                <Header productsInCart={productsInCart} />
+                <Container>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <Home addProductToCart={addProductToCart} />
+                            }
+                        />
+                        <Route path="/cart" element={<CartPage />} />
+                    </Routes>
+                </Container>{' '}
+            </Box>
+        </ThemeProvider>
     )
 }
 export default App
