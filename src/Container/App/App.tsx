@@ -1,12 +1,6 @@
 import Header from 'Container/Header/Header'
 import CssBaseline from '@mui/material/CssBaseline'
-import {
-    Box,
-    Container,
-    StyledEngineProvider,
-    ThemeProvider,
-    createTheme,
-} from '@mui/material'
+import { Box, Container, ThemeProvider, createTheme } from '@mui/material'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router'
 import Home from 'pages/Home/Home'
@@ -29,7 +23,7 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Box sx={{ marginTop: '80px' }}>
+            <Box sx={{ marginTop: '180px' }}>
                 {' '}
                 {/* Отступ для всех страниц */}
                 <Header productsInCart={productsInCart} />
@@ -41,7 +35,12 @@ const App = () => {
                                 <Home addProductToCart={addProductToCart} />
                             }
                         />
-                        <Route path="/cart" element={<CartPage />} />
+                        <Route
+                            path="/cart"
+                            element={
+                                <CartPage productsInCart={productsInCart} />
+                            }
+                        />
                     </Routes>
                 </Container>{' '}
             </Box>
