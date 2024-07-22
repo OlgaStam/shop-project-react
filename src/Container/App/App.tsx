@@ -2,7 +2,7 @@ import Header from 'Container/Header/Header'
 import CssBaseline from '@mui/material/CssBaseline'
 import { Box, Container, ThemeProvider, createTheme } from '@mui/material'
 import { useState } from 'react'
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
 

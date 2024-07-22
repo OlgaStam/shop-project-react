@@ -1,3 +1,4 @@
+import CartTotal from 'components/Cart/CartTotal'
 import productsArray, { Product, getProductsObject } from 'utils/productsArray'
 
 type Props = {
@@ -26,12 +27,7 @@ const CartPage = ({ productsInCart }: Props) => {
                             maxWidth: '300px',
                         }}
                     >
-                        <div
-                        // style={{
-                        //     fontSize: '10px',
-                        //     lineHeight: '1',
-                        // }}
-                        >
+                        <div>
                             {productsObject[parseInt(productId)].title}:{'   '}
                         </div>
                         <div> {productsInCart[Number(productId)]}</div>
@@ -57,18 +53,7 @@ const CartPage = ({ productsInCart }: Props) => {
                     borderTop: '1px solid red',
                 }}
             >
-                <div> Total: </div>
-                <div>
-                    {' '}
-                    ${' '}
-                    {Object.keys(productsInCart).reduce(
-                        (total, productId) =>
-                            total +
-                            productsObject[parseInt(productId)].price *
-                                productsInCart[parseInt(productId)],
-                        0
-                    )}
-                </div>
+                <CartTotal productsInCart={productsInCart} />
             </div>
         </div>
     )

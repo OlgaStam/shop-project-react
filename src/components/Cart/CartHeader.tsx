@@ -1,5 +1,6 @@
 import productsArray, { Product, getProductsObject } from 'utils/productsArray'
-
+import CartTotal from './CartTotal'
+import React from 'react'
 
 type Props = {
     productsInCart: productsInCart
@@ -14,8 +15,18 @@ type productsObjectType = {
 const CartHeader = ({ productsInCart }: Props) => {
     const productsObject: productsObjectType = getProductsObject(productsArray)
     return (
-        <div>
-            <div>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+            }}
+        >
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
+            >
                 {Object.keys(productsInCart).map((productId) => (
                     <div
                         key={productId}
@@ -23,31 +34,24 @@ const CartHeader = ({ productsInCart }: Props) => {
                             display: 'flex',
                             flexDirection: 'row',
                             justifyContent: 'space-between',
-                            width: '100%',
-                            maxWidth: '400px',
                         }}
                     >
-                        <div
-                            style={{
-                                fontSize: '12px',
-                                lineHeight: '1.6',
-                            }}
-                        >
-                            {productsObject[parseInt(productId)].title} :
-                        </div>
+                        <div>{productsObject[parseInt(productId)].title} :</div>
                         <div> {productsInCart[Number(productId)]}</div>
                     </div>
                 ))}
             </div>
-            <div>
-                Total: ${' '}
-                {Object.keys(productsInCart).reduce(
-                    (total, productId) =>
-                        total +
-                        productsObject[parseInt(productId)].price *
-                            productsInCart[parseInt(productId)],
-                    0
-                )}
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    maxWidth: '300px',
+                    borderTop: '1px solid dark-purple',
+                }}
+            >
+                <CartTotal productsInCart={productsInCart} />
             </div>
         </div>
     )
