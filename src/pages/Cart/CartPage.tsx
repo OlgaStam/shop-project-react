@@ -1,3 +1,6 @@
+import { Grid } from '@mui/material'
+import CartProductList from 'components/Cart/CartProdeuctList'
+import CartProductListItemExtended from 'components/Cart/CartProductListItemExtended'
 import CartTotal from 'components/Cart/CartTotal'
 import productsArray, { Product, getProductsObject } from 'utils/productsArray'
 
@@ -14,48 +17,19 @@ type productsObjectType = {
 const CartPage = ({ productsInCart }: Props) => {
     const productsObject: productsObjectType = getProductsObject(productsArray)
     return (
-        <div>
+        <>
             <div>
-                {Object.keys(productsInCart).map((productId) => (
-                    <div
-                        key={productId}
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
-                            width: '100%',
-                            maxWidth: '300px',
-                        }}
-                    >
-                        <div>
-                            {productsObject[parseInt(productId)].title}:{'   '}
-                        </div>
-                        <div> {productsInCart[Number(productId)]}</div>
-                        <div> *</div>
-                        <div>{productsObject[parseInt(productId)].price}</div>
-                        <div> =</div>
-                        <div>
-                            {' '}
-                            $
-                            {productsObject[parseInt(productId)].price *
-                                productsInCart[parseInt(productId)]}
-                        </div>
-                    </div>
-                ))}
+                <Grid container spacing={4}>
+                    <CartProductList
+                        productsInCart={productsInCart}
+                        CartItem={CartProductListItemExtended}
+                    />
+                </Grid>
             </div>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                    maxWidth: '300px',
-                    borderTop: '1px solid red',
-                }}
-            >
+            <div>
                 <CartTotal productsInCart={productsInCart} />
             </div>
-        </div>
+        </>
     )
 }
 export default CartPage
