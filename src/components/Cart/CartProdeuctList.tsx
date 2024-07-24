@@ -7,9 +7,6 @@ type Props = {
     productsObject?: { [id: number]: Product }
     CartItem?: any
 }
-const deleteProduct = (productId: number) => {
-    console.log(`Delele!!!`, productId)
-}
 
 const CartProductList = ({
     productsInCart,
@@ -25,7 +22,6 @@ const CartProductList = ({
                     key={productId}
                     product={productsObject[parseInt(productId)]}
                     productCount={productsInCart[parseInt(productId)]}
-                    deleteProduct={() => deleteProduct(parseInt(productId))}
                 />
             ))}
         </>
