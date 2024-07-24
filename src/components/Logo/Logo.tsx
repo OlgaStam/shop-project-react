@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import logo from '../../assets/logo.svg'
-type Props = {}
+type Props = unknown
 const Logo = (props: Props) => {
     return (
         <Typography

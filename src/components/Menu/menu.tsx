@@ -1,6 +1,6 @@
 import MenuItem from './MenuItem'
 
-type Props = {}
+type Props = unknown
 const Menu = (props: Props) => {
     return (
         <>

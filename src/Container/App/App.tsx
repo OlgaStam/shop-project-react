@@ -8,10 +8,6 @@ import { ThemeProvider } from '@emotion/react'
 import { Box, Container, CssBaseline, createTheme } from '@mui/material'
 const theme = createTheme()
 
-type CartData = {
-    totalCount: number
-    totalPrice: number
-}
 type productsInCart = {
     [id: number]: number
 }
