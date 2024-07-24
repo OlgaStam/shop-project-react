@@ -1,6 +1,6 @@
-import { Button, Card, CardContent, Grid } from '@mui/material'
 import { Product } from 'utils/productsArray'
 import DeleteIcon from '@mui/icons-material/Delete'
+import { Button, Card, CardContent, Grid } from '@mui/material'
 
 type Props = {
     product: Product

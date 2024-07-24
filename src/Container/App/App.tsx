@@ -1,11 +1,11 @@
 import Header from 'Container/Header/Header'
-import CssBaseline from '@mui/material/CssBaseline'
-import { Box, Container, ThemeProvider, createTheme } from '@mui/material'
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
 import { omit } from 'lodash'
+import { ThemeProvider } from '@emotion/react'
+import { Box, Container, CssBaseline, createTheme } from '@mui/material'
 const theme = createTheme()
 
 type CartData = {

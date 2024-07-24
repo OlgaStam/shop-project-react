@@ -20,9 +20,7 @@ module.exports = {
     rules: {
         'no-unused-vars': 'warn', // Изменить уровень на предупреждение
         '@typescript-eslint/no-unused-vars': 'warn', // Изменить уровень на предупреждение для TypeScript
-        // Или отключить правила:
-        // 'no-unused-vars': 'off',
-        // '@typescript-eslint/no-unused-vars': 'off',
+        'react/react-in-jsx-scope': 'off', // Отключить правило для импорта React в JSX
     },
     settings: {
         react: {

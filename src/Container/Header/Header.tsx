@@ -3,7 +3,6 @@ import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Container, styled } from '@mui/material'
-
 import Logo from 'components/Logo/Logo'
 import Menu from 'components/Menu/menu'
 import CartHeader from 'components/Cart/CartHeader'

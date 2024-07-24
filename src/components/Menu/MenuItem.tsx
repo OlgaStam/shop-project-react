@@ -1,6 +1,6 @@
-import { Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import './MenuItem.scss'
+import { Button } from '@mui/material'
 //3
 type Props = {
     to: string
