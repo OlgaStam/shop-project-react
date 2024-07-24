@@ -5,12 +5,13 @@ import DeleteIcon from '@mui/icons-material/Delete'
 type Props = {
     product: Product
     productCount: number
+    removeProductFromCart: (id: number) => void
 }
 
 const CartProductListItemExtended = ({
     product,
     productCount,
-    deleteProduct,
+    removeProductFromCart,
 }: Props) => {
     return (
         <Grid
@@ -50,9 +51,7 @@ const CartProductListItemExtended = ({
                         </div>
                         <Button
                             variant="outlined"
-                            onClick={() => {
-                                deleteProduct(product.id)
-                            }}
+                            onClick={() => removeProductFromCart(product.id)}
                         >
                             <DeleteIcon />
                         </Button>

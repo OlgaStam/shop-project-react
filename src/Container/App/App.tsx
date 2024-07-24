@@ -24,6 +24,15 @@ const App = () => {
             [id]: (prevState[id] || 0) + count,
         }))
     }
+
+    const removeProductFromCart = (id: number) => {
+        setProductsInCart((prevState) => {
+            let prevProductsInCart = { ...prevState } //создали повехностную копию объекта (в нем один уровень вложености, поэтому достаточно ...)
+            delete prevProductsInCart[id]
+            return prevProductsInCart
+        })
+    }
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -42,7 +51,12 @@ const App = () => {
                         <Route
                             path="/cart"
                             element={
-                                <CartPage productsInCart={productsInCart} />
+                                <CartPage
+                                    productsInCart={productsInCart}
+                                    removeProductFromCart={
+                                        removeProductFromCart
+                                    }
+                                />
                             }
                         />
                     </Routes>
