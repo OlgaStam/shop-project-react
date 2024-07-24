@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 type Props = {
     product: Product
     productCount: number
+    deleteProduct: (productId: number) => void // Обновленный тип
 }
 
 const CartProductListItemExtended = ({
@@ -48,7 +49,12 @@ const CartProductListItemExtended = ({
                         <div className="product-features">
                             Sum: ${product.price * productCount}
                         </div>
-                        <Button variant="outlined">
+                        <Button
+                            variant="outlined"
+                            onClick={() => {
+                                deleteProduct(product.id)
+                            }}
+                        >
                             <DeleteIcon />
                         </Button>
                     </div>
