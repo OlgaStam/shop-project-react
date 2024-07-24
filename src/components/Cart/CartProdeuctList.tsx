@@ -1,6 +1,5 @@
 import productsArray, { Product, getProductsObject } from 'utils/productsArray'
 import CartProductListItem from './CartProductListItem'
-import { useState } from 'react'
 
 type Props = {
     productsInCart: { [id: number]: number }
