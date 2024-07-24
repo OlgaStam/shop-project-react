@@ -6,7 +6,7 @@ import { Container, styled } from '@mui/material'
 
 import Logo from 'components/Logo/Logo'
 import Menu from 'components/Menu/menu'
-import CartHeader from 'components/CartHeader/CartHeader'
+import CartHeader from 'components/Cart/CartHeader'
 
 const StyledAppBar = styled(AppBar)({
     position: 'fixed',
