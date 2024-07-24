@@ -1,5 +1,5 @@
 import Header from 'Container/Header/Header'
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
@@ -11,6 +11,12 @@ const theme = createTheme()
 type productsInCart = {
     [id: number]: number
 }
+
+type Context = {
+    removeProductFromCart: (id: number) => void
+}
+export const AppContext = createContext<Context | null>(null)
+
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<productsInCart>({})
 
