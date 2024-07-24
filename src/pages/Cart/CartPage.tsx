@@ -12,17 +12,13 @@ type Props = {
 const CartPage = ({ productsInCart }: Props) => {
     return (
         <>
-            <div>
-                <Grid container spacing={4}>
-                    <CartProductList
-                        productsInCart={productsInCart}
-                        CartItem={CartProductListItemExtended}
-                    />
-                </Grid>
-            </div>
-            <div>
-                <CartTotal productsInCart={productsInCart} />
-            </div>
+            <Grid container spacing={4}>
+                <CartProductList
+                    productsInCart={productsInCart}
+                    CartItem={CartProductListItemExtended}
+                />
+            </Grid>
+            <CartTotal productsInCart={productsInCart} />
         </>
     )
 }

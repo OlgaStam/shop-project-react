@@ -7,13 +7,32 @@ type Props = {
     productCount: number
 }
 
-const CartProductListItemExtended = ({ product, productCount }: Props) => {
+const CartProductListItemExtended = ({
+    product,
+    productCount,
+    deleteProduct,
+}: Props) => {
     return (
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            container
+            spacing={3}
+            alignItems="stretch"
+        >
             <Card>
-                <CardContent>
-                    <div className="product-img">
-                        <img src={product.image} alt="" />
+                <CardContent style={{ display: 'flex', alignItems: 'center' }}>
+                    <div
+                        className="product-img"
+                        style={{ marginRight: '16px' }}
+                    >
+                        <img
+                            src={product.image}
+                            alt=""
+                            style={{ maxWidth: '200px' }}
+                        />
                     </div>
                     <div>
                         <div className="product-title">
