@@ -1,18 +1,17 @@
 import { Product } from 'utils/productsArray'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Button, Card, CardContent, Grid } from '@mui/material'
+import { useContext } from 'react'
+import { AppContext } from 'Container/App/App'
 
 type Props = {
     product: Product
     productCount: number
-    removeProductFromCart: (id: number) => void
 }
 
-const CartProductListItemExtended = ({
-    product,
-    productCount,
-    removeProductFromCart,
-}: Props) => {
+const CartProductListItemExtended = ({ product, productCount }: Props) => {
+    const data = useContext(AppContext)
+
     return (
         <Grid
             item
@@ -31,7 +30,7 @@ const CartProductListItemExtended = ({
                     >
                         <img
                             src={product.image}
-                            alt=""
+                            alt={product.title}
                             style={{ maxWidth: '200px' }}
                         />
                     </div>
@@ -51,7 +50,9 @@ const CartProductListItemExtended = ({
                         </div>
                         <Button
                             variant="outlined"
-                            onClick={() => removeProductFromCart(product.id)}
+                            onClick={() =>
+                                data?.removeProductFromCart(product.id)
+                            }
                         >
                             <DeleteIcon />
                         </Button>
