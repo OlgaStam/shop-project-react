@@ -32,35 +32,41 @@ const App = () => {
     }
 
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Box sx={{ marginTop: '180px' }}>
-                {' '}
-                {/* Отступ для всех страниц */}
-                <Header productsInCart={productsInCart} />
-                <Container>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <Home addProductToCart={addProductToCart} />
-                            }
-                        />
-                        <Route
-                            path="/cart"
-                            element={
-                                <CartPage
-                                    productsInCart={productsInCart}
-                                    removeProductFromCart={
-                                        removeProductFromCart
-                                    }
-                                />
-                            }
-                        />
-                    </Routes>
-                </Container>{' '}
-            </Box>
-        </ThemeProvider>
+        <AppContext.Provider
+            value={{
+                removeProductFromCart: removeProductFromCart,
+            }}
+        >
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Box sx={{ marginTop: '180px' }}>
+                    {' '}
+                    {/* Отступ для всех страниц */}
+                    <Header productsInCart={productsInCart} />
+                    <Container>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={
+                                    <Home addProductToCart={addProductToCart} />
+                                }
+                            />
+                            <Route
+                                path="/cart"
+                                element={
+                                    <CartPage
+                                        productsInCart={productsInCart}
+                                        removeProductFromCart={
+                                            removeProductFromCart
+                                        }
+                                    />
+                                }
+                            />
+                        </Routes>
+                    </Container>{' '}
+                </Box>
+            </ThemeProvider>
+        </AppContext.Provider>
     )
 }
 export default App
