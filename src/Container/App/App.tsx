@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
-
+import { omit } from 'lodash'
 const theme = createTheme()
 
 type CartData = {
@@ -26,11 +26,7 @@ const App = () => {
     }
 
     const removeProductFromCart = (id: number) => {
-        setProductsInCart((prevState) => {
-            let prevProductsInCart = { ...prevState } //создали повехностную копию объекта (в нем один уровень вложености, поэтому достаточно ...)
-            delete prevProductsInCart[id]
-            return prevProductsInCart
-        })
+        setProductsInCart((prevState) => omit(prevState, [id]))
     }
 
     return (
