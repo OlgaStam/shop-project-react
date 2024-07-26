@@ -3,6 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { Button, Card, CardContent, Grid } from '@mui/material'
 import { useContext } from 'react'
 import { AppContext } from 'Container/App/App'
+import Quantity from 'components/Quantity/Quantity'
 
 type Props = {
     product: Product
@@ -48,6 +49,11 @@ const CartProductListItemExtended = ({ product, productCount }: Props) => {
                         <div className="product-features">
                             Sum: ${product.price * productCount}
                         </div>
+                        <Quantity
+                            count={productCount}
+                            onDecrementClick={() => console.log(' ')}
+                            onIncrementClick={() => console.log(' ')}
+                        />
                         <Button
                             variant="outlined"
                             onClick={() =>
