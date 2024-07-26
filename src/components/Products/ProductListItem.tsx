@@ -43,6 +43,7 @@ const ProductListItem = ({
 
                 <div className="product-price">Price: $ {price}</div>
                 <Quantity
+                    minCount={1}
                     count={count}
                     onDecrementClick={onDecrementClick}
                     onIncrementClick={onIncrementClick}
