@@ -1,7 +1,8 @@
 import { Button, Card, CardActions, CardContent } from '@mui/material'
 import './ProductListItem.scss'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
+import { AppContext } from 'Container/App/App'
 
 type Props = {
     id: number
@@ -10,7 +11,6 @@ type Props = {
     type: string
     capacity: string
     price: number
-    addProductToCart: (id: number, count: number) => void
 }
 const ProductListItem = ({
     id,
@@ -19,8 +19,8 @@ const ProductListItem = ({
     type,
     capacity,
     price,
-    addProductToCart,
 }: Props) => {
+    const data = useContext(AppContext)
     const [count, setCount] = useState<number>(1)
 
     const onIncrementClick = () => {
@@ -51,7 +51,7 @@ const ProductListItem = ({
             <CardActions className="btns-wrap">
                 <Button
                     variant="outlined"
-                    onClick={() => addProductToCart(id, count)}
+                    onClick={() => data?.addProductToCart(id, count)}
                 >
                     Add to card
                 </Button>

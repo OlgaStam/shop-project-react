@@ -13,6 +13,7 @@ type productsInCart = {
 }
 
 type Context = {
+    addProductToCart: (id: number, count: number) => void
     removeProductFromCart: (id: number) => void
     changeProductQuantity: (id: number, count: number) => void
 }
@@ -42,6 +43,7 @@ const App = () => {
     return (
         <AppContext.Provider
             value={{
+                addProductToCart: addProductToCart,
                 removeProductFromCart: removeProductFromCart,
                 changeProductQuantity: changeProductQuantity,
             }}
@@ -54,12 +56,7 @@ const App = () => {
                     <Header productsInCart={productsInCart} />
                     <Container>
                         <Routes>
-                            <Route
-                                path="/"
-                                element={
-                                    <Home addProductToCart={addProductToCart} />
-                                }
-                            />
+                            <Route path="/" element={<Home />} />
                             <Route
                                 path="/cart"
                                 element={
