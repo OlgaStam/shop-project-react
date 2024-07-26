@@ -1,10 +1,4 @@
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    TextField,
-} from '@mui/material'
+import { Button, Card, CardActions, CardContent } from '@mui/material'
 import './ProductListItem.scss'
 import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
