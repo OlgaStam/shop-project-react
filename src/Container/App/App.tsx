@@ -14,6 +14,7 @@ type productsInCart = {
 
 type Context = {
     removeProductFromCart: (id: number) => void
+    changeProductQuantity: (id: number, count: number) => void
 }
 export const AppContext = createContext<Context | null>(null)
 
@@ -31,10 +32,18 @@ const App = () => {
         setProductsInCart((prevState) => omit(prevState, [id]))
     }
 
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
+
     return (
         <AppContext.Provider
             value={{
                 removeProductFromCart: removeProductFromCart,
+                changeProductQuantity: changeProductQuantity,
             }}
         >
             <ThemeProvider theme={theme}>
@@ -54,12 +63,7 @@ const App = () => {
                             <Route
                                 path="/cart"
                                 element={
-                                    <CartPage
-                                        productsInCart={productsInCart}
-                                        removeProductFromCart={
-                                            removeProductFromCart
-                                        }
-                                    />
+                                    <CartPage productsInCart={productsInCart} />
                                 }
                             />
                         </Routes>
