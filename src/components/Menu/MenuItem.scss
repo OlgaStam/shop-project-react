@@ -1,15 +1,17 @@
 .menu-item-active,
-.menu-item-hover,
 .menu-item {
     text-decoration: none;
+}
+.menu-item {
+    color: white;
 }
 
 .menu-item-active {
     color: #ff00cf;
 }
-.menu-item {
-    color: white;
-}
-.menu-item-hover {
+.menu-item:visited {
     color: #fc95b5;
+}
+.menu-item:hover {
+    color: #ff00cf;
 }
