@@ -9,28 +9,13 @@ type Props = {
 }
 
 const MenuItem = ({ to, children }: Props) => {
-    const [isHovered, setIsHovered] = useState(false)
-    const handleMouseEnter = () => {
-        setIsHovered(true)
-    }
-
-    const handleMouseLeave = () => {
-        setIsHovered(false)
-    }
-
     return (
         <Button color="inherit">
             <NavLink
                 className={({ isActive }) =>
-                    isActive
-                        ? 'menu-item-active'
-                        : isHovered
-                          ? 'menu-item-hover'
-                          : 'menu-item'
+                    isActive ? 'menu-item-active' : 'menu-item'
                 }
                 to={to}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
             >
                 {children}
             </NavLink>
