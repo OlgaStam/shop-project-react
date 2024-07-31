@@ -1,23 +1,38 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './MenuItem.scss'
 import { Button } from '@mui/material'
-//3
+
 type Props = {
     to: string
     children: React.ReactNode
 }
-//4 пропсы to, children в функцию
+
 const MenuItem = ({ to, children }: Props) => {
+    const [isHovered, setIsHovered] = useState(false)
+    const handleMouseEnter = () => {
+        setIsHovered(true)
+    }
+
+    const handleMouseLeave = () => {
+        setIsHovered(false)
+    }
+
     return (
         <Button color="inherit">
             <NavLink
                 className={({ isActive }) =>
-                    isActive ? 'menu-item-active' : 'menu-item'
+                    isActive
+                        ? 'menu-item-active'
+                        : isHovered
+                          ? 'menu-item-hover'
+                          : 'menu-item'
                 }
-                to={to} //2 динамично передается адрес
+                to={to}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
             >
                 {children}
-                {/*1 динамически передается контент (название страницы)*/}
             </NavLink>
         </Button>
     )

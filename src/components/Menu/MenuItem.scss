@@ -1,8 +1,15 @@
-.menu-item-active {
-    color: #fc95b5;
+.menu-item-active,
+.menu-item-hover,
+.menu-item {
     text-decoration: none;
+}
+
+.menu-item-active {
+    color: #ff00cf;
 }
 .menu-item {
     color: white;
-    text-decoration: none;
+}
+.menu-item-hover {
+    color: #fc95b5;
 }
