@@ -3,6 +3,9 @@ import { createContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
+import AboutUs from 'pages/AboutUs/AboutUs'
+import Payment from 'pages/Payment/Payment'
+import Shipping from 'pages/Shipping/Shipping'
 import { omit } from 'lodash'
 import { ThemeProvider } from '@emotion/react'
 import { Box, Container, CssBaseline, createTheme } from '@mui/material'
@@ -57,6 +60,9 @@ const App = () => {
                     <Container>
                         <Routes>
                             <Route path="/" element={<Home />} />
+                            <Route path="/about-us" element={<AboutUs />} />
+                            <Route path="/payment" element={<Payment />} />
+                            <Route path="/shipping" element={<Shipping />} />
                             <Route
                                 path="/cart"
                                 element={
