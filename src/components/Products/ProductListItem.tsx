@@ -43,10 +43,13 @@ const ProductListItem = ({
                 <div className="product-discription">This is {title}</div>
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity}Gb</div>
-                <div className="product-features">
-                    Category:{' '}
-                    <Link to={`/category/${category}`}>{category}</Link>
-                </div>
+                {/* Условный рендеринг категории */}
+                {category && (
+                    <div className="product-features">
+                        Category:{' '}
+                        <Link to={`/category/${category}`}>{category}</Link>
+                    </div>
+                )}
 
                 <div className="product-price">Price: $ {price}</div>
                 <Quantity
