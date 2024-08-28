@@ -12,6 +12,7 @@ export type Product = {
     type: string
     price: number
     image: any
+    category?: string
 }
 
 const productsArray: Product[] = [
@@ -22,6 +23,7 @@ const productsArray: Product[] = [
         capacity: '256',
         price: 1000,
         image: blackWebp,
+        category: 'phone',
     },
     {
         id: 2,
@@ -38,6 +40,7 @@ const productsArray: Product[] = [
         capacity: '128',
         price: 500,
         image: goldWebp,
+        category: 'phone',
     },
     {
         id: 4,
@@ -46,6 +49,7 @@ const productsArray: Product[] = [
         capacity: '64',
         price: 1500,
         image: purpleWebp,
+        category: 'i-phone',
     },
     {
         id: 5,
@@ -54,6 +58,7 @@ const productsArray: Product[] = [
         capacity: '128',
         price: 1000,
         image: redWebp,
+        category: 'i-phone',
     },
     {
         id: 6,
