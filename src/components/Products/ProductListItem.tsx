@@ -3,6 +3,7 @@ import './ProductListItem.scss'
 import { useContext, useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import { AppContext } from 'Container/App/App'
+import { Link } from 'react-router-dom'
 
 type Props = {
     id: number
@@ -42,7 +43,10 @@ const ProductListItem = ({
                 <div className="product-discription">This is {title}</div>
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity}Gb</div>
-                <div className="product-features">Category: {category}</div>
+                <div className="product-features">
+                    Category:{' '}
+                    <Link to={`/category/${category}`}>{category}</Link>
+                </div>
 
                 <div className="product-price">Price: $ {price}</div>
                 <Quantity
