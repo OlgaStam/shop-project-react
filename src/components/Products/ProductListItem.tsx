@@ -11,6 +11,7 @@ type Props = {
     type: string
     capacity: string
     price: number
+    category?: string
 }
 const ProductListItem = ({
     id,
@@ -19,6 +20,7 @@ const ProductListItem = ({
     type,
     capacity,
     price,
+    category,
 }: Props) => {
     const data = useContext(AppContext)
     const [count, setCount] = useState<number>(1)
@@ -40,6 +42,7 @@ const ProductListItem = ({
                 <div className="product-discription">This is {title}</div>
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity}Gb</div>
+                <div className="product-features">Category: {category}</div>
 
                 <div className="product-price">Price: $ {price}</div>
                 <Quantity
