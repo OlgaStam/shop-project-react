@@ -9,6 +9,7 @@ import Shipping from 'pages/Shipping/Shipping'
 import { omit } from 'lodash'
 import { ThemeProvider } from '@emotion/react'
 import { Box, Container, CssBaseline, createTheme } from '@mui/material'
+import Category from 'pages/Category/Category'
 const theme = createTheme()
 
 type productsInCart = {
@@ -63,6 +64,7 @@ const App = () => {
                             <Route path="/about-us" element={<AboutUs />} />
                             <Route path="/payment" element={<Payment />} />
                             <Route path="/shipping" element={<Shipping />} />
+                            <Route path="/category" element={<Category />} />
                             <Route
                                 path="/cart"
                                 element={
