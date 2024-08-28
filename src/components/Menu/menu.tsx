@@ -8,6 +8,7 @@ function Menu(props: Props) {
             <MenuItem to="/about-us">About us</MenuItem>
             <MenuItem to="/payment">Payment</MenuItem>
             <MenuItem to="/shipping">Shipping</MenuItem>
+            <MenuItem to="/category">Category</MenuItem>
             <MenuItem to="/cart">Cart</MenuItem>
         </>
     )
