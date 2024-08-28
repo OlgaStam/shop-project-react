@@ -1,4 +1,5 @@
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, Box } from '@mui/material'
+import React from 'react'
 
 type Props = {
     minCount: number
@@ -6,6 +7,7 @@ type Props = {
     onDecrementClick: () => void
     onIncrementClick: () => void
 }
+
 const Quantity = ({
     minCount,
     count,
@@ -13,23 +15,37 @@ const Quantity = ({
     onIncrementClick,
 }: Props) => {
     return (
-        <div className="product-quantity">
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
                 variant="outlined"
-                onClick={() => onDecrementClick()}
+                onClick={onDecrementClick}
                 disabled={count === minCount}
+                sx={{ minWidth: '40px', height: '40px' }}
             >
                 -
             </Button>
-            <TextField value={count} size="small" />
+            <TextField
+                value={count}
+                size="small"
+                sx={{
+                    width: '60px', // ширина поля ввода
+                    textAlign: 'center',
+                    marginX: '8px',
+                }}
+                inputProps={{
+                    style: { textAlign: 'center', padding: '8px 0' },
+                }}
+            />
             <Button
                 variant="outlined"
-                onClick={() => onIncrementClick()}
+                onClick={onIncrementClick}
                 disabled={count === 10}
+                sx={{ minWidth: '40px', height: '40px' }}
             >
                 +
             </Button>
-        </div>
+        </Box>
     )
 }
+
 export default Quantity

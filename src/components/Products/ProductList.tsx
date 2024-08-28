@@ -19,7 +19,16 @@ const ProductList = (props: Props) => {
             <Grid container spacing={4}>
                 {productsArray.map(
                     ({ id, title, type, capacity, price, image, category }) => (
-                        <Grid item xs={12} sm={6} md={4} key={id}>
+                        <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
+                            container
+                            spacing={3}
+                            alignItems="stretch"
+                            sx={{ '& > *': { width: '100%' } }} // Этот стиль применяет одинаковую ширину
+                        >
                             <ProductListItem
                                 id={id}
                                 image={image}

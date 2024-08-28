@@ -1,3 +1,5 @@
+import { Grid, Typography } from '@mui/material'
+import ProductListItem from 'components/Products/ProductListItem'
 import { Link, useParams } from 'react-router-dom'
 import productsArray from 'utils/productsArray'
 
@@ -37,12 +39,34 @@ const Category = () => {
 
     return (
         <div>
-            <h1>Category: {categoryId}</h1>
-            <ul>
+            <Typography
+                component="h1"
+                variant="h4"
+                align="center"
+                sx={{ marginBottom: '30px' }}
+            >
+                Category: {categoryId}
+            </Typography>
+            <Grid
+                container
+                spacing={4}
+                alignItems="stretch"
+                sx={{ '& > *': { width: '100%' } }} // Этот стиль применяет одинаковую ширину
+            >
                 {filteredProducts.map((product) => (
-                    <li key={product.id}>{product.title}</li>
+                    <Grid item xs={12} sm={6} md={4} key={product.id}>
+                        <ProductListItem
+                            id={product.id}
+                            image={product.image}
+                            title={product.title}
+                            type={product.type}
+                            capacity={product.capacity}
+                            price={product.price}
+                            category={product.category}
+                        />
+                    </Grid>
                 ))}
-            </ul>
+            </Grid>
         </div>
     )
 }
