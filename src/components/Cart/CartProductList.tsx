@@ -4,7 +4,7 @@ import CartProductListItem from './CartProductListItem'
 type Props = {
     productsInCart: { [id: number]: number }
     productsObject?: { [id: number]: Product }
-    CartItem?: any
+    CartItem?: React.ElementType<any> // Явный тип для пропса CartItem
 }
 
 const CartProductList = ({
@@ -14,13 +14,16 @@ const CartProductList = ({
 }: Props) => {
     return (
         <>
-            {Object.keys(productsInCart).map((productId) => (
-                <CartItem
-                    key={productId}
-                    product={productsObject[parseInt(productId)]}
-                    productCount={productsInCart[parseInt(productId)]}
-                />
-            ))}
+            {Object.keys(productsInCart).map((productId) => {
+                const id = Number(productId) // Используй Number для преобразования
+                return (
+                    <CartItem
+                        key={id}
+                        product={productsObject[id]}
+                        productCount={productsInCart[id]}
+                    />
+                )
+            })}
         </>
     )
 }

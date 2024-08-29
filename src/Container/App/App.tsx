@@ -1,99 +1,113 @@
-import Header from 'Container/Header/Header'
-import { createContext, useState, useRef, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
 import AboutUs from 'pages/AboutUs/AboutUs'
 import Payment from 'pages/Payment/Payment'
 import Shipping from 'pages/Shipping/Shipping'
-import { omit } from 'lodash'
 import { ThemeProvider } from '@emotion/react'
-import { Box, Container, CssBaseline, createTheme } from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline'
+import { Box, Container, createTheme } from '@mui/material'
+import Header from 'Container/Header/Header' // Исправлен путь к Header
+import Footer from 'Container/Footer/Footer' // Предположим, у вас есть Footer
+import { AppProvider } from 'Context/AppContext' // Импорт вашего контекста
+import Layout from 'Layout/layout'
+
+// Создание темы для приложения
 const theme = createTheme()
 
-type productsInCart = {
-    [id: number]: number
-}
-
-type Context = {
-    addProductToCart: (id: number, count: number) => void
-    removeProductFromCart: (id: number) => void
-    changeProductQuantity: (id: number, count: number) => void
-}
-export const AppContext = createContext<Context | null>(null)
-
-const App = () => {
-    const [productsInCart, setProductsInCart] = useState<productsInCart>({})
-
-    const [headerHeight, setHeaderHeight] = useState(0)
-    const headerRef = useRef<HTMLDivElement | null>(null) // Изменено: HTMLDivElement вместо HTMLElement
-
-    const addProductToCart = (id: number, count: number) => {
-        setProductsInCart((prevState) => ({
-            ...prevState,
-            [id]: (prevState[id] || 0) + count,
-        }))
-    }
-
-    const removeProductFromCart = (id: number) => {
-        setProductsInCart((prevState) => omit(prevState, [id]))
-    }
-
-    const changeProductQuantity = (id: number, count: number) => {
-        setProductsInCart((prevState) => ({
-            ...prevState,
-            [id]: count,
-        }))
-    }
+const App: React.FC = () => {
+    const [headerHeight, setHeaderHeight] = useState(0) // Состояние для высоты хедера
+    const headerRef = useRef<HTMLDivElement | null>(null) // Ссылка на элемент хедера
 
     useEffect(() => {
         if (headerRef.current) {
             const updateHeaderHeight = () => {
-                setHeaderHeight(headerRef.current?.offsetHeight || 0)
+                setHeaderHeight(headerRef.current?.offsetHeight || 0) // Обновляем высоту хедера
             }
 
             updateHeaderHeight()
 
-            window.addEventListener('resize', updateHeaderHeight)
+            window.addEventListener('resize', updateHeaderHeight) // Добавляем слушатель события resize
             return () =>
-                window.removeEventListener('resize', updateHeaderHeight)
+                window.removeEventListener('resize', updateHeaderHeight) // Убираем слушатель при размонтировании
         }
-    }, [productsInCart])
+    }, []) // Пустой массив зависимостей, чтобы эффект сработал только один раз
+
     return (
-        <AppContext.Provider
-            value={{
-                addProductToCart: addProductToCart,
-                removeProductFromCart: removeProductFromCart,
-                changeProductQuantity: changeProductQuantity,
-            }}
-        >
+        <AppProvider>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Header ref={headerRef} productsInCart={productsInCart} />{' '}
-                {/* Изменено: добавлен ref к Header */}
+                <Header ref={headerRef} />{' '}
+                {/* Передаем ссылку на хедер для получения его высоты */}
                 <Box
                     sx={{
-                        marginTop: `${headerHeight + 50}px`,
-                        marginBottom: '50px',
+                        marginTop: `${headerHeight + 50}px`, // Отступ сверху для контента
+                        marginBottom: '50px', // Отступ снизу для контента
                     }}
                 >
                     <Container>
                         <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/about-us" element={<AboutUs />} />
-                            <Route path="/payment" element={<Payment />} />
-                            <Route path="/shipping" element={<Shipping />} />
+                            <Route
+                                path="/"
+                                element={
+                                    <Layout
+                                        productsInCart={{}} // Передайте данные о продуктах в корзине
+                                        onHeaderHeightChange={setHeaderHeight}
+                                    >
+                                        <Home />
+                                    </Layout>
+                                }
+                            />
+                            <Route
+                                path="/about-us"
+                                element={
+                                    <Layout
+                                        productsInCart={{}} // Передайте данные о продуктах в корзине
+                                        onHeaderHeightChange={setHeaderHeight}
+                                    >
+                                        <AboutUs />
+                                    </Layout>
+                                }
+                            />
+                            <Route
+                                path="/payment"
+                                element={
+                                    <Layout
+                                        productsInCart={{}} // Передайте данные о продуктах в корзине
+                                        onHeaderHeightChange={setHeaderHeight}
+                                    >
+                                        <Payment />
+                                    </Layout>
+                                }
+                            />
+                            <Route
+                                path="/shipping"
+                                element={
+                                    <Layout
+                                        productsInCart={{}} // Передайте данные о продуктах в корзине
+                                        onHeaderHeightChange={setHeaderHeight}
+                                    >
+                                        <Shipping />
+                                    </Layout>
+                                }
+                            />
                             <Route
                                 path="/cart"
                                 element={
-                                    <CartPage productsInCart={productsInCart} />
+                                    <Layout
+                                        productsInCart={{}} // Передайте данные о продуктах в корзине
+                                        onHeaderHeightChange={setHeaderHeight}
+                                    >
+                                        <CartPage />
+                                    </Layout>
                                 }
                             />
                         </Routes>
                     </Container>
                 </Box>
             </ThemeProvider>
-        </AppContext.Provider>
+        </AppProvider>
     )
 }
 

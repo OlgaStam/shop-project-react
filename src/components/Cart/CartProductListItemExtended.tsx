@@ -1,30 +1,27 @@
 import { Product } from 'utils/productsArray'
 import DeleteIcon from '@mui/icons-material/Delete'
-import { Button, Card, CardContent, Grid } from '@mui/material'
-import { useContext } from 'react'
-import { AppContext } from 'Container/App/App'
+import { Button, Card, CardContent, Typography, Grid } from '@mui/material'
+import { useAppContext } from 'Context/AppContext' // Импорт хука для доступа к контексту
 import Quantity from 'components/Quantity/Quantity'
 
 type Props = {
-    product: Product
-    productCount: number
+    product: Product // Описание типа для продукта
+    productCount: number // Количество товара в корзине
 }
 
 const CartProductListItemExtended = ({ product, productCount }: Props) => {
-    const data = useContext(AppContext)
+    // Используем хук для доступа к контексту
+    const { removeProductFromCart, changeProductQuantity } = useAppContext()
 
     return (
-        <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            container
-            spacing={3}
-            alignItems="stretch"
-        >
+        <Grid item xs={12} sm={6} md={4}>
             <Card>
-                <CardContent style={{ display: 'flex', alignItems: 'center' }}>
+                <CardContent
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}
+                >
                     <div
                         className="product-img"
                         style={{ marginRight: '16px' }}
@@ -36,42 +33,47 @@ const CartProductListItemExtended = ({ product, productCount }: Props) => {
                         />
                     </div>
                     <div>
-                        <div className="product-title">
+                        <Typography variant="h6" component="div">
                             {product.title}
-                            {'   '}
-                        </div>
-                        <div className="product-features">
-                            Count: {productCount}
-                        </div>
-                        <div className="product-features">
-                            Price for one item: ${product.price}
-                        </div>
-                        <div className="product-features">
-                            Sum: ${product.price * productCount}
-                        </div>
+                        </Typography>
+                        <Typography variant="body2">
+                            Count: {productCount} {/* Количество товара */}
+                        </Typography>
+                        <Typography variant="body2">
+                            Price for one item: ${product.price}{' '}
+                            {/* Цена за единицу товара */}
+                        </Typography>
+                        <Typography variant="body2">
+                            Sum: ${product.price * productCount}{' '}
+                            {/* Общая стоимость */}
+                        </Typography>
                         <Quantity
                             minCount={0}
                             count={productCount}
                             onDecrementClick={() => {
+                                // Уменьшение количества товара в корзине
                                 productCount === 1
-                                    ? data?.removeProductFromCart(product.id)
-                                    : data?.changeProductQuantity(
+                                    ? removeProductFromCart(product.id) // Если количество 1, удаляем товар из корзины
+                                    : changeProductQuantity(
                                           product.id,
-                                          productCount - 1
+                                          productCount - 1 // Иначе уменьшаем количество на 1
                                       )
                             }}
                             onIncrementClick={() => {
-                                data?.changeProductQuantity(
+                                // Увеличение количества товара в корзине
+                                changeProductQuantity(
                                     product.id,
-                                    productCount + 1
+                                    productCount + 1 // Увеличиваем количество на 1
                                 )
                             }}
                         />
                         <Button
                             variant="outlined"
                             onClick={() =>
-                                data?.removeProductFromCart(product.id)
+                                // Удаление товара из корзины
+                                removeProductFromCart(product.id)
                             }
+                            style={{ width: '100%', marginTop: '10px' }} // Устанавливаем ширину кнопки на 100% от родительского контейнера
                         >
                             <DeleteIcon />
                         </Button>
