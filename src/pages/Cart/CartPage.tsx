@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import CartProductList from 'components/Cart/CartProdeuctList'
+import CartProductList from 'components/Cart/CartProductList'
 import CartProductListItemExtended from 'components/Cart/CartProductListItemExtended'
 import CartTotal from 'components/Cart/CartTotal'
 

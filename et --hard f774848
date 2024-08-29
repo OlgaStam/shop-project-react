@@ -1,0 +1,193 @@
+[33mcommit 6f1f37dcdb9e429f65013b84e923e897b2d81ac4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mbackup-branch[m[33m)[m
+Merge: de8adde f774848
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Thu Aug 29 13:57:51 2024 +0300
+
+    Merge branch 'Header'
+
+[33mcommit f774848731e9b091d6446b3f9cb238aedf29032d[m[33m ([m[1;32mHeader[m[33m)[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Thu Aug 29 13:54:36 2024 +0300
+
+    Динамическое изменение отступа контента в зависимости от высоты хедера
+
+[33mcommit e3c481f33b66e490343ba67b8cb16e836088544c[m[33m ([m[1;31morigin/Category[m[33m, [m[1;32mCategory[m[33m)[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 19:38:49 2024 +0300
+
+    Добавлена поддержка категорий в компоненте Category.
+    
+    Обновлены компоненты ProductListItem и Quantity с добавлением стилей для выравнивания ширины и отображения списка продуктов в категории. Реализовано отображение товаров на странице категории с одинаковой шириной карточек.
+
+[33mcommit a10093a9aaa45d53325efc9156bb578e53744c60[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 14:53:02 2024 +0300
+
+    Добавлен функционал отображения списка категорий и фильтрации по категории
+    
+    - Импортированы компоненты `Link` и `useParams` из `react-router-dom` для маршрутизации.
+    - Извлечение уникальных категорий из массива `productsArray`.
+    - Реализовано отображение списка категорий на странице при отсутствии `categoryId` в URL.
+    - Реализовано отображение товаров по выбранной категории, если `categoryId` присутствует в URL.
+
+[33mcommit b37e7260d2b528eac6ee1d3d55edc200d6cba90b[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 14:52:08 2024 +0300
+
+    Добавлен динамический маршрут для страницы категорий
+    
+    - Реализован маршрут для страницы категорий, который обрабатывает как прямой доступ из меню, так и URL с указанием конкретной категории.
+    - Использован динамический параметр маршрута `:categoryId?`, позволяющий указание необязательного параметра categoryId в URL.
+    - При доступе к странице категорий без указания конкретной категории отображается список всех категорий.
+    - При наличии параметра categoryId в URL отображаются детали для конкретной категории.
+
+[33mcommit 29732d2a2220eb04af9865f82bf502e00e93b6f0[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 12:54:27 2024 +0300
+
+    Условный рендеринг категории
+
+[33mcommit b320efa0630643062b0f1e83a921b983a9cdf501[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 12:46:59 2024 +0300
+
+    сделали категорию ссылкой
+
+[33mcommit 01d7855d261182d50237732fd134b5cb701be476[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 12:35:53 2024 +0300
+
+    отобразили категории
+
+[33mcommit 6fad77d5559579cd442d97c86bbd74b3f2ff593b[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 12:27:08 2024 +0300
+
+    добавили путь
+
+[33mcommit 155b230718496df78300049f311a77646b4c28f0[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 12:26:55 2024 +0300
+
+    добавили пункт в меню
+
+[33mcommit bf997727c59b0a6eedc10f59fe25d9985d24a766[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 12:26:35 2024 +0300
+
+    создали страничку категорий
+
+[33mcommit f6b8648b18dffd321e02f18af5c2d79636b3c285[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Aug 28 12:20:56 2024 +0300
+
+    добавили категорию товарам
+
+[33mcommit de8adde547ce7f6af5dc16400865b6072d752f4b[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Jul 31 19:11:50 2024 +0300
+
+    Стилизация попроще :)
+
+[33mcommit 7bbc81932200f4f562f76df9f41217c0a56ab8a9[m
+Merge: 84d1649 0bf0dd4
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Jul 31 19:07:42 2024 +0300
+
+    Merge branch 'main' of https://github.com/OlgaStam/shop-project-react
+
+[33mcommit 84d1649e950c26900fb410deb174b141796f4636[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Jul 31 19:07:35 2024 +0300
+
+    Стилизация попроще :)
+
+[33mcommit 0bf0dd4b763ef5a2e3aaffd14db9e330fa3c7cca[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Jul 31 18:51:17 2024 +0300
+
+    Стилизация попроще :)
+
+[33mcommit f88dbb83692e2d2f66cf52286226b74992739a42[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Jul 31 17:45:40 2024 +0300
+
+    Стилизация пунктов меню
+    
+    проверка состояния Hover
+
+[33mcommit 938aabba7f2cea4795159e5942f7ae260aad207c[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Jul 31 16:04:58 2024 +0300
+
+    Маршрутизация
+    
+    доп. к шагу 4 - дописали в Арр остальные маршруты
+
+[33mcommit 65861c2a4f88170d3ebdd14c2b431d36ddc2ed19[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Wed Jul 31 16:03:43 2024 +0300
+
+    Маршрутизация
+    
+    доп.к шагу 2 - создали остальные страницы
+
+[33mcommit 0c59cd3751af114c9ef5dc7611944d0ba64387cd[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 14:34:32 2024 +0300
+
+    удаляем товар из корзины
+    
+    1 - дизейблим разные мин.кол-ва в разных компонентах
+    2 - удаляем из корзины при мин.кол.=1
+
+[33mcommit 04cf6a592f62a726142a483aa8ed661859b021b1[m
+Merge: 5431a0e 5fde0a8
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 14:16:51 2024 +0300
+
+    Merge branch 'main' of https://github.com/OlgaStam/shop-project-react
+
+[33mcommit 5431a0e56f5efe3dbb9e20baba39775f263ecdad[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 14:15:56 2024 +0300
+
+    применение контекста
+    
+    убрали проброс пропсов для addProductToCart
+
+[33mcommit 48649b39ca60091b30fd239bd394ab83aaaea011[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 14:00:19 2024 +0300
+
+    устранение ошибок перед диплоем
+
+[33mcommit 26942761e019afc6c69172bb58624aa7c219f979[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 13:56:48 2024 +0300
+
+    применение контекста
+    
+    убрали проброс пропсов для removeProductFromCart
+
+[33mcommit 5fde0a831281bd3cf50384127041aad9f46d438a[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 14:00:19 2024 +0300
+
+    устранение ошибок перед диплоем
+
+[33mcommit f6ac745de7f5d00738fda4d4f7750e8204624d2a[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 13:56:48 2024 +0300
+
+    применение контекста
+    
+    убрали проброс пропсов
+
+[33mcommit 87ada9af3dd9564894a5c985b5d71042e2856fee[m
+Author: OlgaStam <newrealityforme@gmail.com>
+Date:   Fri Jul 26 13:56:05 2024 +0300
+
+    изменение количества
+    
+    с помощью контекста применили сразу 
