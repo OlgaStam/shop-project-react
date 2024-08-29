@@ -1,6 +1,6 @@
 import { Button, Card, CardActions, CardContent } from '@mui/material'
 import './ProductListItem.scss'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import { useAppContext } from 'Context/AppContext' // Импорт контекста для доступа к функциям корзины
 
