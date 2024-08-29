@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
@@ -13,42 +13,21 @@ const StyledAppBar = styled(AppBar)({
     top: 0,
     width: '100%',
     backgroundColor: '#653c7a',
-    overflow: 'hidden' /* Скрывает содержимое, выходящее за пределы хедера */,
+    overflow: 'hidden',
 })
 
 const HeaderContent = styled('div')({
-    maxHeight: '120px' /* Максимальная высота хедера */,
-    overflowY: 'auto' /* Добавляет вертикальную прокрутку */,
+    maxHeight: '120px',
+    overflowY: 'auto',
 })
 
 type Props = {
-    productsInCart: productsInCart
-}
-
-type productsInCart = {
-    [id: number]: number
+    productsInCart: { [id: number]: number }
 }
 
 const Header = forwardRef<HTMLDivElement, Props>(({ productsInCart }, ref) => {
-    const [headerHeight, setHeaderHeight] = useState(0)
-    const headerRef = useRef<HTMLDivElement | null>(null)
-
-    useEffect(() => {
-        if (headerRef.current) {
-            const updateHeaderHeight = () => {
-                setHeaderHeight(headerRef.current?.offsetHeight || 0)
-            }
-
-            updateHeaderHeight()
-            window.addEventListener('resize', updateHeaderHeight)
-
-            return () =>
-                window.removeEventListener('resize', updateHeaderHeight)
-        }
-    }, [productsInCart])
-
     return (
-        <StyledAppBar ref={ref} className="header">
+        <StyledAppBar ref={ref}>
             <Container>
                 <Toolbar>
                     <IconButton
@@ -62,7 +41,7 @@ const Header = forwardRef<HTMLDivElement, Props>(({ productsInCart }, ref) => {
                     </IconButton>
                     <Logo />
                     <Menu />
-                    <HeaderContent ref={headerRef}>
+                    <HeaderContent>
                         <CartHeader productsInCart={productsInCart} />
                     </HeaderContent>
                 </Toolbar>
