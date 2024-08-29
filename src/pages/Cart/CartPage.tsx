@@ -1,6 +1,5 @@
 // CartPage.tsx
-import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import CartProductList from 'components/Cart/CartProductList'
 import CartProductListItemExtended from 'components/Cart/CartProductListItemExtended'
 import CartTotal from 'components/Cart/CartTotal'

@@ -1,5 +1,3 @@
-import { Container } from '@mui/material'
-
 type Props = {}
 const Footer = (props: Props) => {
     return (

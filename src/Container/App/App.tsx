@@ -106,6 +106,7 @@ const App: React.FC = () => {
                         </Routes>
                     </Container>
                 </Box>
+                <Footer />
             </ThemeProvider>
         </AppProvider>
     )

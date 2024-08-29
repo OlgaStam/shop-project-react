@@ -2,8 +2,6 @@
 
 import React from 'react'
 import { Box, Container, styled } from '@mui/material'
-import Header from 'Container/Header/Header'
-import Footer from 'Container/Footer/Footer'
 
 // Стили для основного содержимого страницы
 const MainContent = styled(Box)({
@@ -19,16 +17,14 @@ type Props = {
 }
 
 // Компонент Layout, отвечающий за макет страницы
-const Layout = ({ children, productsInCart, onHeaderHeightChange }: Props) => {
+const Layout = ({ children }: Props) => {
     return (
         <Box>
-            <Header />
             <MainContent>
                 <Container style={{ marginBottom: '100px' }}>
                     {children}
                 </Container>
             </MainContent>
-            <Footer />
         </Box>
     )
 }
