@@ -1,3 +1,4 @@
+import React, { forwardRef } from 'react' // Добавлено: import forwardRef
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
@@ -12,15 +13,21 @@ const StyledAppBar = styled(AppBar)({
     top: 0,
     backgroundColor: '#653c7a',
 })
+
 type Props = {
     productsInCart: productsInCart
 }
+
 type productsInCart = {
     [id: number]: number
 }
-const Header = ({ productsInCart }: Props) => {
+
+// Изменено: Использование forwardRef
+const Header = forwardRef<HTMLDivElement, Props>(({ productsInCart }, ref) => {
     return (
-        <StyledAppBar className="app-bar">
+        <StyledAppBar ref={ref} className="app-bar">
+            {' '}
+            {/* Изменено: добавлен ref к StyledAppBar */}
             <Container>
                 <Toolbar>
                     <IconButton
@@ -39,5 +46,6 @@ const Header = ({ productsInCart }: Props) => {
             </Container>
         </StyledAppBar>
     )
-}
+})
+
 export default Header

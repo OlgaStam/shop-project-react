@@ -1,5 +1,5 @@
 import Header from 'Container/Header/Header'
-import { createContext, useState } from 'react'
+import { createContext, useState, useRef, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
@@ -25,6 +25,9 @@ export const AppContext = createContext<Context | null>(null)
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<productsInCart>({})
 
+    const [headerHeight, setHeaderHeight] = useState(0)
+    const headerRef = useRef<HTMLDivElement | null>(null) // Изменено: HTMLDivElement вместо HTMLElement
+
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState) => ({
             ...prevState,
@@ -43,6 +46,19 @@ const App = () => {
         }))
     }
 
+    useEffect(() => {
+        if (headerRef.current) {
+            const updateHeaderHeight = () => {
+                setHeaderHeight(headerRef.current?.offsetHeight || 0)
+            }
+
+            updateHeaderHeight()
+
+            window.addEventListener('resize', updateHeaderHeight)
+            return () =>
+                window.removeEventListener('resize', updateHeaderHeight)
+        }
+    }, [productsInCart])
     return (
         <AppContext.Provider
             value={{
@@ -53,10 +69,14 @@ const App = () => {
         >
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Box sx={{ marginTop: '180px' }}>
-                    {' '}
-                    {/* Отступ для всех страниц */}
-                    <Header productsInCart={productsInCart} />
+                <Header ref={headerRef} productsInCart={productsInCart} />{' '}
+                {/* Изменено: добавлен ref к Header */}
+                <Box
+                    sx={{
+                        marginTop: `${headerHeight + 50}px`,
+                        marginBottom: '50px',
+                    }}
+                >
                     <Container>
                         <Routes>
                             <Route path="/" element={<Home />} />
@@ -70,10 +90,11 @@ const App = () => {
                                 }
                             />
                         </Routes>
-                    </Container>{' '}
+                    </Container>
                 </Box>
             </ThemeProvider>
         </AppContext.Provider>
     )
 }
+
 export default App
