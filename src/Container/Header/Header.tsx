@@ -1,3 +1,5 @@
+// src/Container/Header/Header.tsx
+
 import React, { forwardRef } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
@@ -7,29 +9,33 @@ import { Container, styled } from '@mui/material'
 import Logo from 'components/Logo/Logo'
 import Menu from 'components/Menu/menu'
 import CartHeader from 'components/Cart/CartHeader'
+import { useAppContext } from 'Context/AppContext'
 
+// Стили для AppBar
 const StyledAppBar = styled(AppBar)({
-    position: 'fixed',
+    position: 'fixed', // Закрепляем AppBar вверху страницы
     top: 0,
     width: '100%',
-    backgroundColor: '#653c7a',
-    overflow: 'hidden',
+    backgroundColor: '#653c7a', // Цвет фона
+    overflow: 'hidden', // Обрезаем все, что выходит за пределы
 })
 
+// Стили для содержимого заголовка
 const HeaderContent = styled('div')({
-    maxHeight: '120px',
-    overflowY: 'auto',
+    maxHeight: '120px', // Максимальная высота
+    overflowY: 'auto', // Прокрутка по вертикали при необходимости
 })
 
-type Props = {
-    productsInCart: { [id: number]: number }
-}
+// Компонент Header с использованием forwardRef
+const Header = forwardRef<HTMLDivElement>((_, ref) => {
+    // Извлекаем данные из контекста
+    const { productsInCart } = useAppContext()
 
-const Header = forwardRef<HTMLDivElement, Props>(({ productsInCart }, ref) => {
     return (
         <StyledAppBar ref={ref}>
             <Container>
                 <Toolbar>
+                    {/* Кнопка меню */}
                     <IconButton
                         size="large"
                         edge="start"
@@ -39,8 +45,11 @@ const Header = forwardRef<HTMLDivElement, Props>(({ productsInCart }, ref) => {
                     >
                         <MenuIcon />
                     </IconButton>
+                    {/* Логотип */}
                     <Logo />
+                    {/* Меню */}
                     <Menu />
+                    {/* Содержимое заголовка, включая корзину */}
                     <HeaderContent>
                         <CartHeader productsInCart={productsInCart} />
                     </HeaderContent>
