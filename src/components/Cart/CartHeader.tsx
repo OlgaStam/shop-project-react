@@ -1,20 +1,30 @@
+import React from 'react'
 import CartTotal from './CartTotal'
-import CartProductList from './CartProdeuctList'
+import CartProductList from './CartProductList' // Исправлен импорт
 
 type Props = {
     productsInCart: { [id: number]: number }
 }
 
-const CartHeader = ({ productsInCart }: Props) => {
+const CartHeader: React.FC<Props> = ({ productsInCart }) => {
     return (
-        <div>
-            <div>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                maxHeight: '110px',
+                overflowY: 'auto',
+                marginTop: '10px',
+            }}
+        >
+            <div style={{ flex: '1', overflowY: 'auto' }}>
                 <CartProductList productsInCart={productsInCart} />
             </div>
             <div
                 style={{
                     textAlign: 'center',
                     borderTop: '1px solid red',
+                    paddingTop: '8px',
                 }}
             >
                 <CartTotal productsInCart={productsInCart} />
@@ -22,4 +32,5 @@ const CartHeader = ({ productsInCart }: Props) => {
         </div>
     )
 }
+
 export default CartHeader

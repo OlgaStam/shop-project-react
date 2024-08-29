@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react' // Добавлено: import forwardRef
+import React, { useState, useRef, useEffect, forwardRef } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
@@ -11,7 +11,14 @@ import CartHeader from 'components/Cart/CartHeader'
 const StyledAppBar = styled(AppBar)({
     position: 'fixed',
     top: 0,
+    width: '100%',
     backgroundColor: '#653c7a',
+    overflow: 'hidden' /* Скрывает содержимое, выходящее за пределы хедера */,
+})
+
+const HeaderContent = styled('div')({
+    maxHeight: '120px' /* Максимальная высота хедера */,
+    overflowY: 'auto' /* Добавляет вертикальную прокрутку */,
 })
 
 type Props = {
@@ -22,12 +29,26 @@ type productsInCart = {
     [id: number]: number
 }
 
-// Изменено: Использование forwardRef
 const Header = forwardRef<HTMLDivElement, Props>(({ productsInCart }, ref) => {
+    const [headerHeight, setHeaderHeight] = useState(0)
+    const headerRef = useRef<HTMLDivElement | null>(null)
+
+    useEffect(() => {
+        if (headerRef.current) {
+            const updateHeaderHeight = () => {
+                setHeaderHeight(headerRef.current?.offsetHeight || 0)
+            }
+
+            updateHeaderHeight()
+            window.addEventListener('resize', updateHeaderHeight)
+
+            return () =>
+                window.removeEventListener('resize', updateHeaderHeight)
+        }
+    }, [productsInCart])
+
     return (
-        <StyledAppBar ref={ref} className="app-bar">
-            {' '}
-            {/* Изменено: добавлен ref к StyledAppBar */}
+        <StyledAppBar ref={ref} className="header">
             <Container>
                 <Toolbar>
                     <IconButton
@@ -41,7 +62,9 @@ const Header = forwardRef<HTMLDivElement, Props>(({ productsInCart }, ref) => {
                     </IconButton>
                     <Logo />
                     <Menu />
-                    <CartHeader productsInCart={productsInCart} />
+                    <HeaderContent ref={headerRef}>
+                        <CartHeader productsInCart={productsInCart} />
+                    </HeaderContent>
                 </Toolbar>
             </Container>
         </StyledAppBar>
