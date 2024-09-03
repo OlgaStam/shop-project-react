@@ -1,0 +1,39 @@
+# Production context:
+# Все развертывания из основной ветки репозитория будут использовать эти настройки.
+[context.production]
+  # Команда для сборки production окружения
+  command = "make production"
+  [context.production.environment]
+    ACCESS_TOKEN = "super secret"
+  # Плагин для генерации карты сайта при развертывании из основной ветки
+  [[context.production.plugins]]
+    package = "@netlify/plugin-sitemap"
+
+# Deploy Preview context:
+# Все развертывания, созданные из pull/merge запросов, будут использовать эти настройки.
+[context.deploy-preview.environment]
+  ACCESS_TOKEN = "not so secret"
+
+# Branch deploy context:
+# Все развертывания из веток, которые не являются pull/merge запросами и не из основной ветки,
+# будут использовать эти настройки.
+[context.branch-deploy]
+  # Команда для сборки staging окружения
+  command = "make staging"
+
+# Dev context:
+# Эти переменные среды доступны для локальной разработки с использованием Netlify Dev.
+[context.dev.environment]
+  NODE_ENV = "development"
+
+# Specific branch context:
+# Развертывания из указанной ветки будут использовать эти настройки и переопределять текущие.
+[context.main]
+  # Настройка для основной ветки `main`
+  command = "make production"  # Команда для сборки production окружения для основной ветки
+
+[context.category]
+  # Настройка для ветки `category`
+  command = "make category"  # Команда для сборки для ветки `category`
+  [context.category.environment]
+    ACCESS_TOKEN = "category secret"  # Пример переменной окружения для этой ветки
