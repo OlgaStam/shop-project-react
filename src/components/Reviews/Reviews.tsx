@@ -2,7 +2,6 @@ import {
     Button,
     Card,
     CardContent,
-    Grid,
     TextField,
     TextareaAutosize,
     Typography,
@@ -69,7 +68,7 @@ const Reviews = (props: Review) => {
                 >
                     <CardContent>
                         <div>{name}:</div>
-                        <div>{text}:</div>
+                        <div>{text}</div>
                     </CardContent>
                 </Card>
             ))}
