@@ -39,7 +39,17 @@ const Reviews = (props: Review) => {
 
     const onSend = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        if (newReview.name === '' || newReview.text === '') {
+            alert('All fields are required')
+        } else {
+            setReview((prevState) => {
+                return [...prevState, newReview]
+            })
+            // Очистка полей формы
+            setNewReview({ name: '', text: '' })
+        }
     }
+
     return (
         <>
             <Typography
