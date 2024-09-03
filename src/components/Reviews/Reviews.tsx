@@ -37,8 +37,9 @@ const Reviews = (props: Review) => {
         }))
     }
 
-    console.log(newReview)
-
+    const onSend = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+    }
     return (
         <>
             <Typography
@@ -65,7 +66,7 @@ const Reviews = (props: Review) => {
             <h3 style={{ marginBottom: '20px' }}>
                 Пожалуйста, оставьте свой отзыв
             </h3>
-            <form>
+            <form onSubmit={onSend}>
                 <div>
                     Your name
                     <div>
