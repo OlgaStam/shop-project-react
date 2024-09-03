@@ -1,4 +1,12 @@
-import { Card, CardContent, Typography } from '@mui/material'
+import {
+    Button,
+    Card,
+    CardContent,
+    Grid,
+    TextField,
+    TextareaAutosize,
+    Typography,
+} from '@mui/material'
 import { useState } from 'react'
 
 type Review = {
@@ -36,6 +44,31 @@ const Reviews = (props: Review) => {
                     </CardContent>
                 </Card>
             ))}
+            <form>
+                <h3 style={{ marginBottom: '20px' }}>
+                    Пожалуйста, оставьте свой отзыв
+                </h3>
+                <Grid>
+                    <div>
+                        Your name
+                        <div>
+                            <TextField size="small" placeholder="Your name " />
+                        </div>
+                    </div>
+                    <div>
+                        Your text
+                        <div>
+                            <TextareaAutosize
+                                minRows={5}
+                                placeholder="Your text "
+                            />
+                        </div>
+                    </div>
+                    <Button variant="outlined" type="submit">
+                        Send
+                    </Button>
+                </Grid>
+            </form>
         </>
     )
 }
