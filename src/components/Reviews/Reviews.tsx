@@ -52,7 +52,11 @@ const Reviews = (props: Review) => {
                 <div>
                     Your name
                     <div>
-                        <TextField size="small" placeholder="Your name " />
+                        <TextField
+                            size="small"
+                            placeholder="Your name"
+                            value={newReview.name} //но не можем ничего записать, поле не активно
+                        />
                     </div>
                 </div>
                 <div>
@@ -60,7 +64,8 @@ const Reviews = (props: Review) => {
                     <div>
                         <TextareaAutosize
                             minRows={5}
-                            placeholder="Your text "
+                            placeholder="Your text"
+                            value={newReview.text} //но не можем ничего записать, поле не активно
                         />
                     </div>
                 </div>
