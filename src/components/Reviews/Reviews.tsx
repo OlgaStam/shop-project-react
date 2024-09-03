@@ -20,8 +20,9 @@ const Reviews = (props: Review) => {
         { name: 'Имя2', text: 'Другий відгук' },
         { name: 'Имя3', text: 'Третій відгук' },
     ]
-    const [review, setReview] = useState(arrReviews)
+    const [review, setReview] = useState<Review[]>(arrReviews)
 
+    const [newReview, setNewReview] = useState<Review>({ name: '', text: '' })
     return (
         <>
             <Typography
@@ -44,30 +45,28 @@ const Reviews = (props: Review) => {
                     </CardContent>
                 </Card>
             ))}
+            <h3 style={{ marginBottom: '20px' }}>
+                Пожалуйста, оставьте свой отзыв
+            </h3>
             <form>
-                <h3 style={{ marginBottom: '20px' }}>
-                    Пожалуйста, оставьте свой отзыв
-                </h3>
-                <Grid>
+                <div>
+                    Your name
                     <div>
-                        Your name
-                        <div>
-                            <TextField size="small" placeholder="Your name " />
-                        </div>
+                        <TextField size="small" placeholder="Your name " />
                     </div>
+                </div>
+                <div>
+                    Your text
                     <div>
-                        Your text
-                        <div>
-                            <TextareaAutosize
-                                minRows={5}
-                                placeholder="Your text "
-                            />
-                        </div>
+                        <TextareaAutosize
+                            minRows={5}
+                            placeholder="Your text "
+                        />
                     </div>
-                    <Button variant="outlined" type="submit">
-                        Send
-                    </Button>
-                </Grid>
+                </div>
+                <Button variant="outlined" type="submit">
+                    Send
+                </Button>
             </form>
         </>
     )
