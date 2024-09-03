@@ -2,7 +2,7 @@
 # Все развертывания из основной ветки репозитория будут использовать эти настройки.
 [context.production]
   # Команда для сборки production окружения
-  command = "make production"
+  command = "npm run build" 
   [context.production.environment]
     ACCESS_TOKEN = "super secret"
   # Плагин для генерации карты сайта при развертывании из основной ветки
