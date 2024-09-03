@@ -9,7 +9,7 @@ const ProductList = (props: Props) => {
         <>
             {productsArray.map(
                 ({ id, title, type, capacity, price, image }) => (
-                    <Card sx={{ padding: '30px' }}>
+                    <Card sx={{ padding: '30px' }} key={id}>
                         <ProductListItem
                             id={id}
                             image={image}
