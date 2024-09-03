@@ -1,3 +1,4 @@
+import { Card } from '@mui/material'
 import ProductListItem from './ProductListItem'
 import productsArray from 'utils/productsArray'
 
@@ -8,14 +9,16 @@ const ProductList = (props: Props) => {
         <>
             {productsArray.map(
                 ({ id, title, type, capacity, price, image }) => (
-                    <ProductListItem
-                        id={id}
-                        image={image}
-                        title={title}
-                        type={type}
-                        capacity={capacity}
-                        price={price}
-                    />
+                    <Card sx={{ padding: '30px' }}>
+                        <ProductListItem
+                            id={id}
+                            image={image}
+                            title={title}
+                            type={type}
+                            capacity={capacity}
+                            price={price}
+                        />{' '}
+                    </Card>
                 )
             )}
         </>

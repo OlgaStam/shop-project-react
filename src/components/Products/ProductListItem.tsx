@@ -35,7 +35,7 @@ const ProductListItem = ({
     }
 
     return (
-        <Card className="product" variant="outlined">
+        <Card className="product">
             <CardContent>
                 <div className="product-img">
                     <img src={image} alt={title} /> {/* Изображение продукта */}
