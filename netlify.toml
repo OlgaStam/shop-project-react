@@ -19,7 +19,7 @@
 # будут использовать эти настройки.
 [context.branch-deploy]
   # Команда для сборки staging окружения
-  command = "make staging"
+  command = "npm run build:staging"  # Предположим, что у тебя есть такой скрипт
 
 # Dev context:
 # Эти переменные среды доступны для локальной разработки с использованием Netlify Dev.
@@ -30,10 +30,10 @@
 # Развертывания из указанной ветки будут использовать эти настройки и переопределять текущие.
 [context.main]
   # Настройка для основной ветки `main`
-  command = "make production"  # Команда для сборки production окружения для основной ветки
+  command = "npm run build"  # Команда для сборки production окружения для основной ветки
 
 [context.category]
   # Настройка для ветки `category`
-  command = "make category"  # Команда для сборки для ветки `category`
+  command = "npm run build:category"  # Предположим, что у тебя есть такой скрипт
   [context.category.environment]
     ACCESS_TOKEN = "category secret"  # Пример переменной окружения для этой ветки
