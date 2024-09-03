@@ -23,6 +23,22 @@ const Reviews = (props: Review) => {
     const [review, setReview] = useState<Review[]>(arrReviews)
 
     const [newReview, setNewReview] = useState<Review>({ name: '', text: '' })
+
+    const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewReview((prevState) => ({
+            ...prevState,
+            name: e.target.value,
+        }))
+    }
+    const handleText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setNewReview((prevState) => ({
+            ...prevState,
+            text: e.target.value,
+        }))
+    }
+
+    console.log(newReview)
+
     return (
         <>
             <Typography
@@ -38,6 +54,7 @@ const Reviews = (props: Review) => {
                     sx={{
                         margin: '25px 0',
                     }}
+                    key={i}
                 >
                     <CardContent>
                         <div>{name}:</div>
@@ -55,7 +72,8 @@ const Reviews = (props: Review) => {
                         <TextField
                             size="small"
                             placeholder="Your name"
-                            value={newReview.name} //но не можем ничего записать, поле не активно
+                            value={newReview.name}
+                            onChange={handleName}
                         />
                     </div>
                 </div>
@@ -65,7 +83,8 @@ const Reviews = (props: Review) => {
                         <TextareaAutosize
                             minRows={5}
                             placeholder="Your text"
-                            value={newReview.text} //но не можем ничего записать, поле не активно
+                            value={newReview.text}
+                            onChange={handleText}
                         />
                     </div>
                 </div>
