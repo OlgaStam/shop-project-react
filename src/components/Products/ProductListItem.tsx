@@ -3,7 +3,8 @@ import './ProductListItem.scss'
 import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import { useAppContext } from 'Context/AppContext' // Импорт контекста для доступа к функциям корзины
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
 type Props = {
     id: number // Идентификатор продукта
     image: any // Изображение продукта
@@ -11,6 +12,8 @@ type Props = {
     type: string // Тип продукта
     capacity: string // Ёмкость продукта
     price: number // Цена продукта
+    //  2. добавили иконки лайков
+    isLiked?: boolean
 }
 
 const ProductListItem = ({
@@ -20,6 +23,8 @@ const ProductListItem = ({
     type,
     capacity,
     price,
+    //  1. добавили иконки лайков (по умолчанию все лайкнутые)
+    isLiked = true,
 }: Props) => {
     const { addProductToCart } = useAppContext() // Извлечение функции из контекста
     const [count, setCount] = useState<number>(1) // Состояние для количества продукта
@@ -37,6 +42,10 @@ const ProductListItem = ({
     return (
         <Card className="product">
             <CardContent>
+                {/* 3. добавили иконки лайков с проверкой */}
+                <Button variant="outlined">
+                    {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </Button>
                 <div className="product-img">
                     <img src={image} alt={title} /> {/* Изображение продукта */}
                 </div>
