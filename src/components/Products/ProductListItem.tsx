@@ -5,6 +5,9 @@ import Quantity from 'components/Quantity/Quantity'
 import { useAppContext } from 'Context/AppContext' // Импорт контекста для доступа к функциям корзины
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import { useAppDispatch, useAppSelector } from 'redux1/hooks1' // хуки для доступа к состоянию и dispatch
+import { toggleLike } from 'redux1/likeReducer' // импорт действия toggleLike
+
 type Props = {
     id: number // Идентификатор продукта
     image: any // Изображение продукта
@@ -12,8 +15,6 @@ type Props = {
     type: string // Тип продукта
     capacity: string // Ёмкость продукта
     price: number // Цена продукта
-    //  2. добавили иконки лайков
-    isLiked?: boolean
 }
 
 const ProductListItem = ({
@@ -23,8 +24,6 @@ const ProductListItem = ({
     type,
     capacity,
     price,
-    //  1. добавили иконки лайков (по умолчанию все лайкнутые)
-    isLiked = true,
 }: Props) => {
     const { addProductToCart } = useAppContext() // Извлечение функции из контекста
     const [count, setCount] = useState<number>(1) // Состояние для количества продукта
@@ -38,12 +37,16 @@ const ProductListItem = ({
     const onDecrementClick = () => {
         setCount((prevState) => prevState - 1)
     }
-
+    const isLiked = useAppSelector((state) => state.productsLikeState[id])
+    const dispatch = useAppDispatch()
     return (
         <Card className="product">
             <CardContent>
-                {/* 3. добавили иконки лайков с проверкой */}
-                <Button variant="outlined">
+                <Button
+                    variant="outlined"
+                    // Вызываем toggleLike с id продукта, который переключает лайк
+                    onClick={() => dispatch(toggleLike(id))}
+                >
                     {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </Button>
                 <div className="product-img">
