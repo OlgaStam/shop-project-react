@@ -1,6 +1,6 @@
 import { Product } from 'utils/productsArray'
 import DeleteIcon from '@mui/icons-material/Delete'
-import { Button, Card, CardContent, Typography, Grid } from '@mui/material'
+import { Button, Card, CardContent, Typography, Grid, Box } from '@mui/material'
 import { useAppContext } from 'Context/AppContext' // Импорт хука для доступа к контексту
 import Quantity from 'components/Quantity/Quantity'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -18,7 +18,6 @@ const CartProductListItemExtended = ({ id, product, productCount }: Props) => {
     // Используем хук для доступа к контексту
     const { removeProductFromCart, changeProductQuantity } = useAppContext()
     const isLiked = useAppSelector((state) => state.productsLikeState[id])
-    console.log('🚀 ~ CartProductListItemExtended ~ id:', id)
 
     const dispatch = useAppDispatch()
     return (
@@ -30,23 +29,33 @@ const CartProductListItemExtended = ({ id, product, productCount }: Props) => {
                         alignItems: 'center',
                     }}
                 >
-                    <Button
-                        variant="outlined"
-                        // Вызываем toggleLike с id продукта, который переключает лайк
-                        onClick={() => dispatch(toggleLike(id))}
+                    <Box
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="space-between"
+                        alignItems="center"
                     >
-                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-                    </Button>
-                    <div
-                        className="product-img"
-                        style={{ marginRight: '16px' }}
-                    >
-                        <img
-                            src={product.image}
-                            alt={product.title}
-                            style={{ maxWidth: '200px' }}
-                        />
-                    </div>
+                        <div
+                            className="product-img"
+                            style={{ marginRight: '16px' }}
+                        >
+                            <Button
+                                // Вызываем toggleLike с id продукта, который переключает лайк
+                                onClick={() => dispatch(toggleLike(id))}
+                            >
+                                {isLiked ? (
+                                    <FavoriteIcon />
+                                ) : (
+                                    <FavoriteBorderIcon />
+                                )}
+                            </Button>
+                            <img
+                                src={product.image}
+                                alt={product.title}
+                                // style={{ maxWidth: '200px' }}
+                            />
+                        </div>
+                    </Box>
                     <div>
                         <Typography variant="h6" component="div">
                             {product.title}

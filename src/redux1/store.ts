@@ -3,6 +3,7 @@ import likeReducer from './likeReducer'
 
 // Создание хранилища Redux
 export const store = configureStore({
+    // описание структуры хранилища
     reducer: {
         productsLikeState: likeReducer, // Использование редьюсера
     },

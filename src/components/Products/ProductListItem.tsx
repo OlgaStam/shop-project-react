@@ -37,7 +37,9 @@ const ProductListItem = ({
     const onDecrementClick = () => {
         setCount((prevState) => prevState - 1)
     }
+    // Функция для получения данных из хранилища в компонент
     const isLiked = useAppSelector((state) => state.productsLikeState[id])
+    // Функция отправки данных в хранилище из компонента
     const dispatch = useAppDispatch()
     return (
         <Card className="product">
