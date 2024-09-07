@@ -19,6 +19,7 @@ const CartProductList = ({
                 return (
                     <CartItem
                         key={id}
+                        id={id} // Передай id сюда
                         product={productsObject[id]}
                         productCount={productsInCart[id]}
                     />

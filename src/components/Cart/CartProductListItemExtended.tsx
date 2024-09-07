@@ -3,16 +3,24 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { Button, Card, CardContent, Typography, Grid } from '@mui/material'
 import { useAppContext } from 'Context/AppContext' // Импорт хука для доступа к контексту
 import Quantity from 'components/Quantity/Quantity'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { useAppDispatch, useAppSelector } from 'redux1/hooks1' // хуки для доступа к состоянию и dispatch
+import { toggleLike } from 'redux1/likeReducer' // импорт действия toggleLike
 
 type Props = {
+    id: number // Идентификатор продукта
     product: Product // Описание типа для продукта
     productCount: number // Количество товара в корзине
 }
 
-const CartProductListItemExtended = ({ product, productCount }: Props) => {
+const CartProductListItemExtended = ({ id, product, productCount }: Props) => {
     // Используем хук для доступа к контексту
     const { removeProductFromCart, changeProductQuantity } = useAppContext()
+    const isLiked = useAppSelector((state) => state.productsLikeState[id])
+    console.log('🚀 ~ CartProductListItemExtended ~ id:', id)
 
+    const dispatch = useAppDispatch()
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card>
@@ -22,6 +30,13 @@ const CartProductListItemExtended = ({ product, productCount }: Props) => {
                         alignItems: 'center',
                     }}
                 >
+                    <Button
+                        variant="outlined"
+                        // Вызываем toggleLike с id продукта, который переключает лайк
+                        onClick={() => dispatch(toggleLike(id))}
+                    >
+                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </Button>
                     <div
                         className="product-img"
                         style={{ marginRight: '16px' }}
