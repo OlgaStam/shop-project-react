@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom'
 
 type Props = {
     id: number // Идентификатор продукта
+    description?: string //Описание продукта
     image: any // Изображение продукта
     title: string // Название продукта
     type: string // Тип продукта
@@ -20,6 +21,7 @@ type Props = {
 
 const ProductListItem = ({
     id,
+    description,
     image,
     title,
     type,
@@ -59,7 +61,12 @@ const ProductListItem = ({
                     <Link to={`/products/${id}`}>{title}</Link>
                 </h4>{' '}
                 {/* Название продукта */}
-                <div className="product-discription">This is {title}</div>{' '}
+                {/* Отображение описания только если оно есть */}
+                {description && (
+                    <div className="product-description">
+                        Description:{description}
+                    </div>
+                )}{' '}
                 {/* Описание продукта */}
                 <div className="product-features">Type: {type}</div>{' '}
                 {/* Тип продукта */}

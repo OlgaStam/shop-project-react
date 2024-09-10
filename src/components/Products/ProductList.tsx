@@ -8,10 +8,11 @@ const ProductList = (props: Props) => {
     return (
         <>
             {productsArray.map(
-                ({ id, title, type, capacity, price, image }) => (
+                ({ id, description, title, type, capacity, price, image }) => (
                     <Card sx={{ padding: '30px' }} key={id}>
                         <ProductListItem
                             id={id}
+                            description={description}
                             image={image}
                             title={title}
                             type={type}

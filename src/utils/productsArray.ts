@@ -7,6 +7,7 @@ import starlightWebp from 'assets/images/starlight.webp'
 
 export type Product = {
     id: number
+    description?: string
     title: string
     capacity: string
     type: string
@@ -18,6 +19,7 @@ const productsArray: Product[] = [
     {
         id: 1,
         title: 'iPhone 14 Pro',
+        description: '<div class="red">This is iPhone 14 Pro</div>',
         type: 'phone',
         capacity: '256',
         price: 1000,
@@ -25,6 +27,7 @@ const productsArray: Product[] = [
     },
     {
         id: 2,
+        description: 'This is iPhone 13 Pro',
         title: 'iPhone 13 Pro',
         type: 'phone',
         capacity: '128',
@@ -34,6 +37,7 @@ const productsArray: Product[] = [
     {
         id: 3,
         title: 'iPhone XS',
+        description: 'This is iPhone XS',
         type: 'phone',
         capacity: '128',
         price: 500,
