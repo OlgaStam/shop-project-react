@@ -1,18 +1,24 @@
+// Стандартные библиотеки
 import React, { useRef, useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+
+// Библиотеки сторонних разработчиков
+import { ThemeProvider } from '@emotion/react'
+import CssBaseline from '@mui/material/CssBaseline'
+import { Box, Container, createTheme } from '@mui/material'
+
+// Локальные модули
 import Home from 'pages/Home/Home'
 import CartPage from 'pages/Cart/CartPage'
 import AboutUs from 'pages/AboutUs/AboutUs'
 import Payment from 'pages/Payment/Payment'
 import Shipping from 'pages/Shipping/Shipping'
-import { ThemeProvider } from '@emotion/react'
-import CssBaseline from '@mui/material/CssBaseline'
-import { Box, Container, createTheme } from '@mui/material'
-import Header from 'Container/Header/Header' // Исправлен путь к Header
-import Footer from 'Container/Footer/Footer' // Предположим, у вас есть Footer
-import { AppProvider } from 'Context/AppContext' // Импорт вашего контекста
+import Header from 'Container/Header/Header'
+import Footer from 'Container/Footer/Footer'
+import { AppProvider } from 'Context/AppContext'
 import Layout from 'Layout/layout'
 import ProductPage from 'pages/Product/ProductPage'
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs'
 
 // Создание темы для приложения
 const theme = createTheme()
@@ -43,11 +49,12 @@ const App: React.FC = () => {
                 {/* Передаем ссылку на хедер для получения его высоты */}
                 <Box
                     sx={{
-                        marginTop: `${headerHeight + 50}px`, // Отступ сверху для контента
-                        marginBottom: '50px', // Отступ снизу для контента
+                        marginTop: `${headerHeight + 15}px`, // Отступ сверху для контента
+                        marginBottom: '20px', // Отступ снизу для контента
                     }}
                 >
                     <Container>
+                        <Breadcrumbs /> {/* Добавляем хлебные крошки */}
                         <Routes>
                             <Route
                                 path="/"
