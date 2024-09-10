@@ -8,6 +8,7 @@ import starlightWebp from 'assets/images/starlight.webp'
 export type Product = {
     id: number
     description?: string
+    fullDescription?: string
     title: string
     capacity: string
     type: string
@@ -20,6 +21,8 @@ const productsArray: Product[] = [
         id: 1,
         title: 'iPhone 14 Pro',
         description: '<div class="red">This is iPhone 14 Pro</div>',
+        fullDescription:
+            '<div class="fullDescription">This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro This is iPhone 14 Pro </div>',
         type: 'phone',
         capacity: '256',
         price: 1000,
