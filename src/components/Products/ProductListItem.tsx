@@ -63,9 +63,10 @@ const ProductListItem = ({
                 {/* Название продукта */}
                 {/* Отображение описания только если оно есть */}
                 {description && (
-                    <div className="product-description">
-                        Description:{description}
-                    </div>
+                    <div
+                        className="product-description"
+                        dangerouslySetInnerHTML={{ __html: description }}
+                    ></div>
                 )}{' '}
                 {/* Описание продукта */}
                 <div className="product-features">Type: {type}</div>{' '}
