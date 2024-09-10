@@ -10,8 +10,7 @@ const ProductPage = ({
 }: Props) => {
     const { id } = useParams()
     console.log('🚀 ~ id:', id)
-    const productId = id || ''
-    return <div>{productsObject[parseInt(productId)].title}</div>
+    return <div>{productsObject[parseInt(id!)].title}</div>
 }
 
 export default ProductPage
