@@ -5,8 +5,8 @@ import { Box, Container, styled } from '@mui/material'
 
 // Стили для основного содержимого страницы
 const MainContent = styled(Box)({
-    marginTop: '120px', // Отступ сверху, учитывающий высоту заголовка
-    marginBottom: '50px', // Отступ снизу для пространства под футером
+    marginTop: '15px', // Отступ сверху, учитывающий высоту заголовка
+    marginBottom: '15px', // Отступ снизу для пространства под футером
 })
 
 // Типы пропсов для компонента Layout

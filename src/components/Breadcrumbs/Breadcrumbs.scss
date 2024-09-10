@@ -1,0 +1,21 @@
+nav {
+    padding: 0 24px;
+}
+nav ol {
+    list-style: none;
+    padding: 0;
+}
+
+nav ol li {
+    display: inline;
+    margin-right: 5px;
+}
+
+nav ol li a {
+    text-decoration: none;
+    color: yellowgreen;
+}
+
+nav ol li:last-child::after {
+    content: '';
+}
