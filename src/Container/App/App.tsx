@@ -12,6 +12,7 @@ import Header from 'Container/Header/Header' // Исправлен путь к H
 import Footer from 'Container/Footer/Footer' // Предположим, у вас есть Footer
 import { AppProvider } from 'Context/AppContext' // Импорт вашего контекста
 import Layout from 'Layout/layout'
+import ProductPage from 'pages/Product/ProductPage'
 
 // Создание темы для приложения
 const theme = createTheme()
@@ -100,6 +101,17 @@ const App: React.FC = () => {
                                         onHeaderHeightChange={setHeaderHeight}
                                     >
                                         <CartPage />
+                                    </Layout>
+                                }
+                            />
+                            <Route
+                                path="/products/:id"
+                                element={
+                                    <Layout
+                                        productsInCart={{}} // Передайте данные о продуктах в корзине
+                                        onHeaderHeightChange={setHeaderHeight}
+                                    >
+                                        <ProductPage />
                                     </Layout>
                                 }
                             />

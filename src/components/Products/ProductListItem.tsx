@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { useAppDispatch, useAppSelector } from 'redux1/hooks1' // хуки для доступа к состоянию и dispatch
 import { toggleLike } from 'redux1/likeReducer' // импорт действия toggleLike
+import { Link } from 'react-router-dom'
 
 type Props = {
     id: number // Идентификатор продукта
@@ -54,7 +55,9 @@ const ProductListItem = ({
                 <div className="product-img">
                     <img src={image} alt={title} /> {/* Изображение продукта */}
                 </div>
-                <h4 className="product-title">{title}</h4>{' '}
+                <h4 className="product-title">
+                    <Link to={`/products/${id}`}>{title}</Link>
+                </h4>{' '}
                 {/* Название продукта */}
                 <div className="product-discription">This is {title}</div>{' '}
                 {/* Описание продукта */}
